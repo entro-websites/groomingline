@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Groomingline - salon za negu i grooming pasa</title>
+<meta name="description" content="Groomingline - profesionalno šišanje, kupanje i uređivanje za tvog psa. Zakaži termin danas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#467c45;
+    --accent-dark:#305531;
+    --accent-soft:#e7efe6;
+    --accent-softer:#f3f7f2;
+    --accent-glow: rgba(70,124,69,0.18);
+
+    --text: rgba(20,28,20,0.92);
+    --text-muted: rgba(20,28,20,0.65);
+    --text-faint: rgba(20,28,20,0.42);
+
+    --bg: #fdfdfb;
+    --radius-btn: 999px;
+    --radius-card: 20px;
+    --maxw: 1280px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Montserrat', sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding-left:24px;
+    padding-right:24px;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    margin:0;
+    line-height:1.15;
+    color:var(--text);
+  }
+
+  p{
+    margin:0;
+    line-height:1.65;
+    color:var(--text-muted);
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  .section{
+    padding-top:96px;
+    padding-bottom:96px;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent-dark);
+    margin-bottom:14px;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:16px 32px;
+    border-radius:var(--radius-btn);
+    font-weight:700;
+    font-size:15px;
+    border:2px solid transparent;
+    cursor:pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:#fff;
+  }
+  .btn-primary:hover{
+    background:var(--accent-dark);
+    box-shadow: 0 10px 30px -8px var(--accent-glow);
+    transform:translateY(-2px);
+  }
+  .btn-outline{
+    background:transparent;
+    color:var(--accent-dark);
+    border-color:var(--accent);
+  }
+  .btn-outline:hover{
+    background:var(--accent-soft);
+    transform:translateY(-2px);
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(253,253,251,0.9);
+    border-bottom:1px solid rgba(20,28,20,0.06);
+    transition: backdrop-filter 0.2s ease, box-shadow 0.2s ease;
+  }
+  header.scrolled{
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(20,28,20,0.05);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:18px;
+    padding-bottom:18px;
+  }
+  .logo{
+    font-size:22px;
+    font-weight:800;
+    color:var(--accent-dark);
+    letter-spacing:-0.01em;
+  }
+  .logo span{color:var(--text);}
+  nav.desktop-nav{
+    display:flex;
+    align-items:center;
+    gap:36px;
+  }
+  .nav-links{
+    display:flex;
+    gap:32px;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .nav-links a{
+    font-size:15px;
+    font-weight:600;
+    color:var(--text);
+    transition:color 0.15s ease;
+  }
+  .nav-links a:hover{color:var(--accent-dark);}
+
+  .hamburger{
+    display:none;
+    width:42px;
+    height:42px;
+    border-radius:var(--radius-btn);
+    border:1.5px solid var(--accent);
+    background:transparent;
+    cursor:pointer;
+    align-items:center;
+    justify-content:center;
+  }
+  .hamburger svg{width:20px; height:20px;}
+
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    gap:0;
+    background:#fff;
+    border-bottom:1px solid rgba(20,28,20,0.08);
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{
+    padding:16px 24px;
+    font-weight:600;
+    font-size:16px;
+    border-top:1px solid rgba(20,28,20,0.06);
+    color:var(--text);
+  }
+  .mobile-menu .btn{
+    margin:16px 24px 20px 24px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding-top:72px;
+    padding-bottom:72px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-120px;
+    right:-120px;
+    width:480px;
+    height:480px;
+    background:radial-gradient(circle, var(--accent-glow) 0%, rgba(70,124,69,0) 70%);
+    z-index:0;
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(34px, 5vw, 56px);
+    font-weight:800;
+    letter-spacing:-0.02em;
+  }
+  .hero-sub{
+    margin-top:22px;
+    font-size:18px;
+    max-width:46ch;
+  }
+  .hero-cta{
+    margin-top:34px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .hero-badges{
+    margin-top:40px;
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  .hero-badge{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    font-weight:600;
+    color:var(--text-muted);
+  }
+  .hero-badge svg{width:18px; height:18px; color:var(--accent); flex-shrink:0;}
+
+  .hero-img-placeholder{
+    width:100%;
+    aspect-ratio: 4/5;
+    border-radius:var(--radius-card);
+    background:var(--accent-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:24px;
+    font-weight:600;
+    color:var(--accent-dark);
+    font-size:14px;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+  }
+
+  /* ---------- BOL UVOD ---------- */
+  .pain{
+    padding-top:0;
+    padding-bottom:72px;
+  }
+  .pain-box{
+    background:var(--accent-softer);
+    border-radius:var(--radius-card);
+    padding:40px;
+  }
+  .pain-box p{
+    font-size:19px;
+    color:var(--text);
+    max-width:68ch;
+    font-weight:500;
+  }
+
+  /* ---------- SERVICES ---------- */
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head h2{
+    font-size:clamp(28px, 3.4vw, 40px);
+    margin-top:10px;
+  }
+  .section-head p{
+    margin-top:16px;
+    font-size:17px;
+    max-width:60ch;
+  }
+
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  .service-card{
+    background:#fff;
+    border:1px solid rgba(20,28,20,0.08);
+    border-radius:var(--radius-card);
+    padding:36px 30px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .service-card:hover{
+    box-shadow: 0 20px 45px -20px rgba(20,28,20,0.18);
+    transform:translateY(-4px);
+  }
+  .service-icon{
+    width:54px;
+    height:54px;
+    border-radius:16px;
+    background:var(--accent-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:22px;
+  }
+  .service-icon svg{width:26px; height:26px; color:var(--accent-dark); stroke-width:1.6;}
+  .service-card h3{
+    font-size:19px;
+    font-weight:700;
+    margin-bottom:12px;
+  }
+  .service-card p{font-size:15px;}
+
+  /* ---------- PRICING ---------- */
+  .pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  .price-card{
+    background:#fff;
+    border:1px solid rgba(20,28,20,0.08);
+    border-radius:var(--radius-card);
+    padding:34px 30px;
+    display:flex;
+    flex-direction:column;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .price-card.featured{
+    border-color:var(--accent);
+    box-shadow: 0 20px 45px -22px var(--accent-glow);
+  }
+  .price-card:hover{
+    transform:translateY(-4px);
+    box-shadow: 0 20px 45px -20px rgba(20,28,20,0.16);
+  }
+  .price-tag{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--accent-dark);
+    margin-bottom:10px;
+  }
+  .price-card h3{font-size:21px; margin-bottom:18px;}
+  .price-list{
+    list-style:none;
+    margin:0 0 24px 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    flex-grow:1;
+  }
+  .price-list li{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    font-size:14.5px;
+    color:var(--text-muted);
+    padding-bottom:12px;
+    border-bottom:1px dashed rgba(20,28,20,0.1);
+  }
+  .price-list li span.price{
+    font-weight:700;
+    color:var(--text);
+    white-space:nowrap;
+  }
+  .price-note{
+    margin-top:28px;
+    font-size:14px;
+    color:var(--text-faint);
+    max-width:65ch;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .about-img-placeholder{
+    width:100%;
+    aspect-ratio: 4/3;
+    border-radius:var(--radius-card);
+    background:var(--accent-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:24px;
+    font-weight:600;
+    color:var(--accent-dark);
+    font-size:14px;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+  }
+  .about-points{
+    margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .about-point{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .about-point svg{width:22px; height:22px; color:var(--accent); flex-shrink:0; margin-top:2px;}
+  .about-point-text h4{font-size:16px; font-weight:700; margin-bottom:4px;}
+  .about-point-text p{font-size:14.5px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+  }
+  .contact-info-list{
+    display:flex;
+    flex-direction:column;
+    gap:26px;
+    margin-top:30px;
+  }
+  .contact-info-item{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .contact-info-item svg{width:22px; height:22px; color:var(--accent); flex-shrink:0; margin-top:3px;}
+  .contact-info-item h4{font-size:15px; font-weight:700; margin-bottom:4px;}
+  .contact-info-item p{font-size:14.5px;}
+
+  .map-placeholder{
+    margin-top:30px;
+    width:100%;
+    height:220px;
+    border-radius:var(--radius-card);
+    background:var(--accent-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:24px;
+    font-weight:600;
+    color:var(--accent-dark);
+    font-size:13px;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+  }
+
+  .contact-form{
+    background:#fff;
+    border:1px solid rgba(20,28,20,0.08);
+    border-radius:var(--radius-card);
+    padding:36px;
+  }
+  .contact-form h3{font-size:20px; margin-bottom:6px;}
+  .contact-form p.sub{font-size:14.5px; margin-bottom:26px;}
+  .form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-bottom:16px;
+  }
+  .form-field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    margin-bottom:16px;
+  }
+  .form-field label{
+    font-size:13px;
+    font-weight:600;
+    color:var(--text-muted);
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea{
+    border:1px solid rgba(20,28,20,0.15);
+    border-radius:12px;
+    padding:13px 16px;
+    font-family:'Montserrat', sans-serif;
+    font-size:14.5px;
+    color:var(--text);
+    background:var(--bg);
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus{
+    outline:none;
+    border-color:var(--accent);
+  }
+  .form-field textarea{resize:vertical; min-height:100px;}
+  .contact-form .btn{width:100%; margin-top:6px;}
+
+  /* ---------- CTA CLOSE ---------- */
+  .cta-close{
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-box{
+    position:relative;
+    background:var(--accent-dark);
+    border-radius:var(--radius-card);
+    padding:72px 56px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .cta-box::before{
+    content:"";
+    position:absolute;
+    top:-80px;
+    left:50%;
+    transform:translateX(-50%);
+    width:520px;
+    height:320px;
+    background:radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    pointer-events:none;
+  }
+  .cta-box h2{
+    color:#fff;
+    font-size:clamp(26px, 3.4vw, 38px);
+    position:relative;
+    z-index:1;
+  }
+  .cta-box p{
+    color:rgba(255,255,255,0.78);
+    margin-top:16px;
+    font-size:17px;
+    max-width:55ch;
+    margin-left:auto;
+    margin-right:auto;
+    position:relative;
+    z-index:1;
+  }
+  .cta-box .btn{
+    margin-top:30px;
+    position:relative;
+    z-index:1;
+  }
+  .cta-box .btn-primary{
+    background:#fff;
+    color:var(--accent-dark);
+  }
+  .cta-box .btn-primary:hover{
+    background:var(--accent-soft);
+    box-shadow:none;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid rgba(20,28,20,0.08);
+    padding-top:48px;
+    padding-bottom:48px;
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:32px;
+  }
+  .footer-logo{
+    font-size:20px;
+    font-weight:800;
+    color:var(--accent-dark);
+  }
+  .footer-logo span{color:var(--text);}
+  .footer-tagline{
+    margin-top:10px;
+    font-size:14px;
+    max-width:32ch;
+  }
+  .footer-links{
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+  }
+  .footer-col h5{
+    font-size:13px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--text-faint);
+    margin-bottom:14px;
+  }
+  .footer-col a{
+    display:block;
+    font-size:14.5px;
+    color:var(--text-muted);
+    margin-bottom:10px;
+  }
+  .footer-col a:hover{color:var(--accent-dark);}
+  .footer-bottom{
+    margin-top:40px;
+    padding-top:24px;
+    border-top:1px solid rgba(20,28,20,0.08);
+    font-size:13px;
+    color:var(--text-faint);
+    text-align:center;
+  }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{
+    opacity:1;
+    transform:translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.pre{
+    opacity:0.001;
+    transform:translateY(14px);
+  }
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 991px){
+    .desktop-nav{display:none;}
+    .hamburger{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-img-placeholder{order:-1; aspect-ratio:16/10;}
+    .about-grid{grid-template-columns:1fr;}
+    .contact-wrap{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:1fr 1fr;}
+    .pricing-grid{grid-template-columns:1fr;}
+  }
+
+  @media (max-width: 768px){
+    .wrap{padding-left:20px; padding-right:20px;}
+    .section{padding-top:72px; padding-bottom:72px;}
+    .services-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .cta-box{padding:48px 24px;}
+    .footer-grid{flex-direction:column;}
+    .hero-cta{flex-direction:column; align-items:stretch;}
+    .hero-cta .btn{width:100%;}
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">Grooming<span>line</span></a>
+    <nav class="desktop-nav">
+      <ul class="nav-links">
+        <li><a href="#usluge">Usluge</a></li>
+        <li><a href="#cenovnik">Cenovnik</a></li>
+        <li><a href="#o-nama">O nama</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
+    </nav>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Otvori meni">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#usluge">Usluge</a>
+    <a href="#cenovnik">Cenovnik</a>
+    <a href="#o-nama">O nama</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Čist, uredan i opušten pas - posle svake posete.</h1>
+        <p class="hero-sub">Šišanje, kupanje i uređivanje u salonu Groomingline. Zakazuješ termin za par minuta, mi se pobrinemo za ostalo.</p>
+        <div class="hero-cta">
+          <a href="#kontakt" class="btn btn-primary">Zakaži termin za svog ljubimca</a>
+          <a href="#cenovnik" class="btn btn-outline">Pogledaj cenovnik</a>
+        </div>
+        <div class="hero-badges">
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Radimo sa svim rasama
+          </div>
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Oprema prilagođena psima
+          </div>
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Termini i vikendom
+          </div>
+        </div>
+      </div>
+      <div class="hero-img-placeholder">
+        FOTOGRAFIJA SALONA - PAS NA GROOMING STOLU
+      </div>
+    </div>
+  </section>
+
+  <!-- BOL UVOD -->
+  <section class="pain">
+    <div class="wrap">
+      <div class="pain-box reveal">
+        <p>Kupanje kod kuće zna da bude borba - pas se otima, kupatilo je mokro, a šišanje bez prave opreme retko ispadne kako treba. Dovedeš ga kod nas i izađe nazad čist, uredan i miran, bez stresa za tebe i za njega.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- USLUGE -->
+  <section class="section" id="usluge">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Usluge</span>
+        <h2>Sve što tvom psu treba, pod jednim krovom</h2>
+        <p>Od redovnog kupanja do potpunog uređivanja pre neke prilike - radimo onoliko koliko je psu zaista potrebno, ne više.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Šišanje i trimovanje</h3>
+          <p>Dužina i stil prilagođeni rasi, tipu dlake i godišnjem dobu. Radimo i higijensko šišanje za pse kojima treba samo osveženje.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 4 7 8.5 7 13a7 7 0 0 1-14 0c0-4.5 4-9 7-13z"/></svg>
+          </div>
+          <h3>Kupanje i sušenje</h3>
+          <p>Šampon biramo prema tipu kože i dlake. Posle kupanja sledi pažljivo sušenje, bez žurbe i bez stresa za psa.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>
+          </div>
+          <h3>Uređivanje</h3>
+          <p>Sečenje noktiju, čišćenje ušiju i oko očiju, četkanje i raspetljavanje dlake. Detalji koji se najčešće zapostave kod kuće.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENOVNIK -->
+  <section class="section" id="cenovnik" style="background:var(--accent-softer);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Cenovnik</span>
+        <h2>Cena zavisi od veličine psa i stanja dlake</h2>
+        <p>Orijentacione cene po kategoriji. Tačnu cenu potvrđujemo na recepciji, pre nego što počnemo.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card reveal">
+          <span class="price-tag">Mali pas, do 10 kg</span>
+          <h3>Jorkšir, čivava, maltezer...</h3>
+          <ul class="price-list">
+            <li>Kupanje i sušenje <span class="price">od 1.800 din</span></li>
+            <li>Šišanje i uređivanje <span class="price">od 2.500 din</span></li>
+            <li>Sečenje noktiju <span class="price">500 din</span></li>
+            <li>Čišćenje ušiju i očiju <span class="price">400 din</span></li>
+          </ul>
+          <a href="#kontakt" class="btn btn-outline">Zakaži termin</a>
+        </div>
+        <div class="price-card featured reveal">
+          <span class="price-tag">Srednji pas, 10-25 kg</span>
+          <h3>Kokeri, buldog, korgi...</h3>
+          <ul class="price-list">
+            <li>Kupanje i sušenje <span class="price">od 2.200 din</span></li>
+            <li>Šišanje i uređivanje <span class="price">od 3.200 din</span></li>
+            <li>Sečenje noktiju <span class="price">500 din</span></li>
+            <li>Čišćenje ušiju i očiju <span class="price">400 din</span></li>
+          </ul>
+          <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
+        </div>
+        <div class="price-card reveal">
+          <span class="price-tag">Veliki pas, 25 kg+</span>
+          <h3>Labrador, ovčar, haski...</h3>
+          <ul class="price-list">
+            <li>Kupanje i sušenje <span class="price">od 2.800 din</span></li>
+            <li>Šišanje i uređivanje <span class="price">od 4.000 din</span></li>
+            <li>Sečenje noktiju <span class="price">600 din</span></li>
+            <li>Čišćenje ušiju i očiju <span class="price">450 din</span></li>
+          </ul>
+          <a href="#kontakt" class="btn btn-outline">Zakaži termin</a>
+        </div>
+      </div>
+      <p class="price-note reveal">Cene su okvirne. Konačna cena zavisi od rase, dužine i stanja dlake, i dogovaramo je pre početka usluge, bez iznenađenja na kraju.</p>
+    </div>
+  </section>
+
+  <!-- O BRENDU -->
+  <section class="section" id="o-nama">
+    <div class="wrap about-grid">
+      <div class="about-img-placeholder reveal">
+        FOTOGRAFIJA SALONA I PROSTORA ZA GROOMING
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">O nama</span>
+        <h2>Posao koji radimo svaki dan, ne povremeno</h2>
+        <p style="margin-top:16px; font-size:17px;">Groomingline je salon posvećen isključivo negi pasa. Ne nudimo desetine nepovezanih usluga - radimo šišanje, kupanje i uređivanje, i to radimo pažljivo.</p>
+        <div class="about-points">
+          <div class="about-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11.8A8 8 0 0 0 4 10.2C4 17.5 12 22 12 22z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="about-point-text">
+              <h4>Prilagođeno psu, ne šablonu</h4>
+              <p>Gledamo rasu, godine i temperament pre nego što uzmemo makaze u ruke.</p>
+            </div>
+          </div>
+          <div class="about-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg>
+            <div class="about-point-text">
+              <h4>Mirna atmosfera</h4>
+              <p>Bez žurbe i bez buke koja plaši - radimo tempom koji psu odgovara.</p>
+            </div>
+          </div>
+          <div class="about-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <div class="about-point-text">
+              <h4>Termin kad tebi odgovara</h4>
+              <p>Radimo radnim danima i vikendom, po dogovoru telefonom ili porukom.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="section" id="kontakt" style="background:var(--accent-softer);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Kontakt i zakazivanje</span>
+        <h2>Zakaži termin za svog ljubimca</h2>
+        <p>Pošalji upit ili pozovi direktno. Javljamo se isti dan i dogovaramo termin koji ti odgovara.</p>
+      </div>
+      <div class="contact-wrap">
+        <div class="reveal">
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.97.35 1.92.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.33 1.84.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <h4>Telefon</h4>
+                <p>060 123 4567</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+              <div>
+                <h4>Email</h4>
+                <p>info@groomingline.rs</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <h4>Adresa salona</h4>
+                <p>Bulevar oslobođenja 45, Novi Sad</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <div>
+                <h4>Radno vreme</h4>
+                <p>Ponedeljak - subota, 09:00 - 20:00</p>
+              </div>
+            </div>
+          </div>
+          <div class="map-placeholder">
+            MAPA LOKACIJE SALONA GROOMINGLINE
+          </div>
+        </div>
+
+        <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Hvala, javićemo se uskoro da potvrdimo termin.');">
+          <h3>Pošalji zahtev za termin</h3>
+          <p class="sub">Popuni osnovne podatke, ostalo dogovaramo telefonom.</p>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="ime">Ime i prezime</label>
+              <input type="text" id="ime" name="ime" placeholder="Tvoje ime" required>
+            </div>
+            <div class="form-field">
+              <label for="telefon">Telefon</label>
+              <input type="tel" id="telefon" name="telefon" placeholder="06x xxx xxxx" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="ljubimac">Rasa i veličina psa</label>
+            <input type="text" id="ljubimac" name="ljubimac" placeholder="Npr. labrador, srednja veličina">
+          </div>
+          <div class="form-field">
+            <label for="usluga">Željena usluga</label>
+            <select id="usluga" name="usluga">
+              <option>Šišanje i trimovanje</option>
+              <option>Kupanje i sušenje</option>
+              <option>Uređivanje (nokti, uši, oči)</option>
+              <option>Nisam siguran/na, treba mi savet</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="poruka">Poruka (opciono)</label>
+            <textarea id="poruka" name="poruka" placeholder="Napiši nam kad ti termin odgovara ili nešto bitno o ljubimcu"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Pošalji zahtev za termin</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA ZATVARANJE -->
+  <section class="section cta-close">
+    <div class="wrap">
+      <div class="cta-box reveal">
+        <h2>Zakaži termin i vidi razliku posle prve posete</h2>
+        <p>Dovedi psa kod nas, mi se pobrinemo za šišanje, kupanje i uređivanje. Ti ga vodiš kući čistog i urednog.</p>
+        <a href="#kontakt" class="btn btn-primary">Zakaži termin za svog ljubimca</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Grooming<span>line</span></div>
+        <p class="footer-tagline">Salon za negu i grooming pasa - šišanje, kupanje i uređivanje na jednom mestu.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Stranica</h5>
+          <a href="#usluge">Usluge</a>
+          <a href="#cenovnik">Cenovnik</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h5>Kontakt</h5>
+          <a href="tel:0601234567">060 123 4567</a>
+          <a href="mailto:info@groomingline.rs">info@groomingline.rs</a>
+          <a href="#kontakt">Bulevar oslobođenja 45, Novi Sad</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Groomingline. Sva prava zadržana.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header scroll efekat
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Hamburger meni
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  revealEls.forEach(el => el.classList.add('pre'));
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          entry.target.classList.remove('pre');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealEls.forEach(el => observer.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.remove('pre'));
+  }
+</script>
+
+</body>
+</html>
