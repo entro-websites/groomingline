@@ -1,1019 +1,1432 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="sr-Latn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Groomingline - salon za negu i grooming pasa</title>
-<meta name="description" content="Groomingline - profesionalno šišanje, kupanje i uređivanje za tvog psa. Zakaži termin danas.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grooming Line - salon za negu pasa, Novi Beograd kod Arene</title>
+<meta name="description" content="Šišanje, trimovanje, furminiranje, kupanje i feniranje pasa na Novom Beogradu, pored Kombank arene. Pon–Sub 09–17 h. Zakaži termin online ili na 063 111 41 61.">
+<meta name="theme-color" content="#2b1c1d">
+<link rel="icon" href="assets/logo-pudla.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/pudla-braon.webp">
 <style>
-  :root{
-    --accent:#467c45;
-    --accent-dark:#305531;
-    --accent-soft:#e7efe6;
-    --accent-softer:#f3f7f2;
-    --accent-glow: rgba(70,124,69,0.18);
+:root{
+  --ink:#2b1c1d; --cocoa:#482f30; --cocoa-2:#5c3f40; --apricot:#f6ab4a; --apricot-2:#e89831;
+  --cream:#f7f3e7; --paper:#fcfaf5; --white:#fff; --muted:#6e5d5a; --muted-d:#c9bcb0;
+  --line:rgba(43,28,29,.12); --line-d:rgba(247,243,231,.16);
+  --pk:#e7198f; --cy:#22aae2; --pu:#803f98; --ye:#f4ec30; --gr:#0d9647; --li:#8cc643; --or:#f16726; --rd:#e63352; --go:#fcb044;
+  --rainbow:linear-gradient(90deg,var(--pu),var(--pk),var(--rd),var(--or),var(--go),var(--ye),var(--li),var(--gr),var(--cy));
+  --sans:"Bricolage Grotesque",system-ui,sans-serif; --serif:"Instrument Serif",Georgia,serif;
+  --r:24px; --r-s:16px; --pad:128px; --gut:32px;
+  --sh:0 24px 48px -24px rgba(43,28,29,.28),0 4px 12px -4px rgba(43,28,29,.08);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/28px var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input,textarea,select{font:inherit;color:inherit}
+h1,h2,h3,h4,p,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+em,.it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 var(--gut)}
+.section{padding:var(--pad) 0}
+.s{display:block;text-wrap:balance}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;line-height:16px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:32px;height:4px;border-radius:4px;background:var(--rainbow)}
+.h2{font-size:clamp(32px,4.4vw,52px);line-height:1.08;font-weight:700;letter-spacing:-.03em;text-wrap:balance}
+.h2 em{font-size:1.12em;line-height:1}
+.lead{font-size:20px;line-height:32px;color:var(--muted)}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 64px;align-items:end;margin-bottom:64px}
+.head .eyebrow{grid-column:1/-1}
+.head .h2{max-width:800px}
+.flow-side .h2,.salon-copy .h2,.faq-side .h2{font-size:clamp(32px,3.6vw,44px)}
+.head p{text-wrap:balance}
+svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
-    --text: rgba(20,28,20,0.92);
-    --text-muted: rgba(20,28,20,0.65);
-    --text-faint: rgba(20,28,20,0.42);
+/* dugmad: tri nivoa */
+.btn{--bg:var(--cocoa);--fg:var(--cream);display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 28px;border-radius:999px;border:2px solid var(--bg);background:var(--bg);color:var(--fg);font-weight:600;font-size:16px;line-height:24px;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .25s,color .25s,border-color .25s,transform .25s}
+.btn:hover{--bg:var(--apricot);--fg:var(--ink);transform:translateY(-2px)}
+.btn:focus-visible,.btn-2:focus-visible,.btn-3:focus-visible{outline:4px solid var(--cy);outline-offset:4px}
+.btn.on-dark{--bg:var(--apricot);--fg:var(--ink)}
+.btn.on-dark:hover{--bg:var(--cream)}
+.btn-2{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 28px;border-radius:999px;border:2px solid currentColor;background:transparent;color:var(--cocoa);font-weight:600;line-height:24px;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .25s,color .25s}
+.btn-2:hover{background:var(--cocoa);color:var(--cream)}
+.btn-3{display:inline-flex;align-items:center;gap:8px;padding:4px 0;border:0;background:none;font-weight:600;text-decoration:none;cursor:pointer;color:inherit;background-image:linear-gradient(currentColor,currentColor);background-size:100% 2px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .3s}
+.btn-3:hover{background-size:0 2px;background-position:100% 100%}
+.has-arrow .ar{display:grid;place-items:center;width:32px;height:32px;margin-right:-16px;border-radius:50%;background:var(--fg);color:var(--bg);transition:transform .25s}
+.has-arrow:hover .ar{transform:rotate(-45deg)}
+.has-arrow .ar svg{width:16px;height:16px}
 
-    --bg: #fdfdfb;
-    --radius-btn: 999px;
-    --radius-card: 20px;
-    --maxw: 1280px;
-  }
+/* gornja traka */
+.topbar{background:var(--ink);color:var(--muted-d);font-size:12px;line-height:16px}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:40px}
+.topbar ul{display:flex;gap:24px;align-items:center}
+.topbar li{white-space:nowrap;display:flex;gap:8px;align-items:center}
+.topbar a{text-decoration:none}
+.topbar a:hover{color:var(--cream)}
+.topbar svg.i{width:16px;height:16px;color:var(--apricot)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted-d);flex:none}
+.is-open .dot{background:#5fd38d;box-shadow:0 0 0 4px rgba(95,211,141,.2)}
 
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    font-family:'Montserrat', sans-serif;
-    color:var(--text);
-    background:var(--bg);
-    font-weight:400;
-    -webkit-font-smoothing:antialiased;
-  }
-  img{max-width:100%; display:block;}
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(252,250,245,.86);backdrop-filter:saturate(1.4) blur(16px);-webkit-backdrop-filter:saturate(1.4) blur(16px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.hdr.scrolled{border-color:var(--line);box-shadow:0 8px 24px -16px rgba(43,28,29,.2)}
+.hdr .wrap{display:flex;align-items:center;gap:32px;min-height:80px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.brand svg{width:56px;height:56px}
+.brand b{display:block;font-size:20px;line-height:24px;font-weight:800;letter-spacing:-.02em}
+.brand small{display:block;font-size:12px;line-height:16px;color:var(--muted);letter-spacing:.04em}
+.nav{display:flex;gap:28px}
+.nav a{text-decoration:none;font-weight:500;font-size:16px;position:relative;padding:8px 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--rainbow);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nav a:hover::after{transform:scaleX(1)}
+.hdr .btn{min-height:48px;padding:0 24px}
+.burger{display:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--white);cursor:pointer;place-items:center}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;box-shadow:0 -6px 0 var(--ink),0 6px 0 var(--ink)}
+.mnav{display:none}
 
-  .wrap{
-    max-width:var(--maxw);
-    margin:0 auto;
-    padding-left:24px;
-    padding-right:24px;
-  }
+/* hero */
+.hero{padding:64px 0 var(--pad);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:auto -10% -40% 40%;height:80%;background:radial-gradient(closest-side,rgba(246,171,74,.22),transparent);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:64px;align-items:center}
+.hero-copy{container-type:inline-size;position:relative;z-index:1}
+.pill{display:inline-flex;align-items:center;gap:12px;padding:8px 16px 8px 12px;border-radius:999px;background:var(--white);border:1px solid var(--line);font-size:16px;line-height:24px;font-weight:500;box-shadow:0 4px 16px -8px rgba(43,28,29,.2)}
+.h1{margin:28px 0 28px;font-weight:700;letter-spacing:-.045em;line-height:1;font-size:clamp(32px,10.4vw,96px);font-size:clamp(32px,11.6cqi,96px)}
+.h1 span{display:block;white-space:nowrap}
+.h1 em{font-size:1.14em;letter-spacing:-.01em;background:linear-gradient(90deg,var(--cocoa),var(--or) 60%,var(--pk));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:8px}
+.hero .lead{max-width:600px}
+.cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
+.trust{display:grid;grid-template-columns:repeat(3,auto);gap:16px 28px;margin-top:48px;padding-top:28px;border-top:1px solid var(--line);justify-content:start}
+.trust li{display:flex;gap:12px;align-items:center;font-size:16px;line-height:20px;font-weight:500}
+.trust .ic{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--cream);color:var(--cocoa)}
 
-  h1,h2,h3,h4{
-    font-family:'Montserrat', sans-serif;
-    font-weight:800;
-    margin:0;
-    line-height:1.15;
-    color:var(--text);
-  }
+.stage{position:relative;aspect-ratio:4/5;max-width:520px;width:100%;justify-self:end}
+.arch{position:absolute;inset:0;border-radius:999px 999px var(--r) var(--r);overflow:hidden;background:var(--cream);box-shadow:var(--sh);isolation:isolate}
+.arch .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;clip-path:circle(0% at 56% 36%);animation:reveal 1.2s cubic-bezier(.7,0,.2,1) 2.7s forwards}
+.arch .glint{position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.42) 50%,transparent 60%);transform:translateX(-120%);animation:glint 10s ease-in-out 5s infinite;pointer-events:none;mix-blend-mode:soft-light}
+.draw{position:absolute;inset:12% 8% 14%;width:84%;height:74%;z-index:2;animation:drawOut .8s ease 3.1s forwards}
+.draw path{stroke-width:1.6;stroke-dasharray:1;stroke-dashoffset:1;fill-opacity:0;animation:stroke .6s ease calc(var(--i)*.13s + .3s) forwards,fill .5s ease calc(var(--i)*.13s + .75s) forwards}
+.grid-paper{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:32px 32px;opacity:.5;animation:fadeOut .6s ease 3s forwards}
+@keyframes stroke{to{stroke-dashoffset:0}}
+@keyframes fill{to{fill-opacity:1}}
+@keyframes reveal{to{clip-path:circle(80% at 56% 36%)}}
+@keyframes drawOut{to{opacity:0;transform:scale(.6) translate(-40%,60%)}}
+@keyframes fadeOut{to{opacity:0}}
+@keyframes glint{0%,86%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float{position:absolute;z-index:3;background:var(--white);border-radius:var(--r-s);box-shadow:var(--sh);padding:16px 20px;opacity:0;animation:pop .6s cubic-bezier(.2,.8,.2,1) forwards}
+.f-open{top:12%;left:-12%;display:flex;gap:12px;align-items:center;animation-delay:3.6s}
+.f-open b{display:block;font-size:16px;line-height:20px}
+.f-open small{display:block;font-size:12px;line-height:16px;color:var(--muted)}
+.f-price{right:-8%;bottom:16%;animation-delay:3.85s;min-width:200px}
+.f-price small{display:block;font-size:12px;line-height:16px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+.f-price b{display:block;font-size:28px;line-height:36px;letter-spacing:-.02em}
+.f-price .btn-3{font-size:16px;line-height:20px;margin-top:4px}
+.seal{position:absolute;z-index:3;left:-8%;bottom:-4%;width:144px;height:144px;border-radius:50%;background:var(--ink);display:grid;place-items:center;opacity:0;animation:pop .6s ease 3.4s forwards;box-shadow:var(--sh)}
+.seal svg.ring{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);animation:spin 24s linear infinite}
+.seal text{fill:var(--cream);font:600 10px var(--sans);text-transform:uppercase}
+.seal .mark{width:64px;height:64px}
 
-  p{
-    margin:0;
-    line-height:1.65;
-    color:var(--text-muted);
-  }
+/* rase traka */
+.breeds{background:var(--ink);color:var(--cream);overflow:hidden;padding:24px 0;border-block:1px solid var(--line-d)}
+.track{display:flex;width:max-content;animation:marq 48s linear infinite}
+.track ul{display:flex;align-items:center;gap:40px;padding-right:40px}
+.track li{display:flex;align-items:center;gap:40px;font-family:var(--serif);font-style:italic;font-size:40px;line-height:48px;white-space:nowrap}
+.track li::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--c,var(--apricot))}
+@keyframes marq{to{transform:translateX(-50%)}}
 
-  a{color:inherit; text-decoration:none;}
+/* bol */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pain-card{position:relative;display:flex;flex-direction:column;gap:20px;padding:32px;border-radius:var(--r);background:var(--white);border:1px solid var(--line);transition:transform .35s,box-shadow .35s}
+.pain-card:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.pain-card::before{content:"";position:absolute;left:32px;top:0;width:48px;height:4px;border-radius:0 0 4px 4px;background:var(--c)}
+.pain-card q{font-family:var(--serif);font-style:italic;font-size:28px;line-height:32px;quotes:"„" "\201C";text-wrap:balance}
+.pain-card p{color:var(--muted);text-wrap:pretty}
+.pain-card .btn-3{margin-top:auto;align-self:flex-start;font-size:16px}
 
-  .section{
-    padding-top:96px;
-    padding-bottom:96px;
-  }
+/* usluge */
+.svc{background:var(--cream)}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.svc-card{display:flex;flex-direction:column;border-radius:var(--r);background:var(--white);overflow:hidden;border:1px solid var(--line);transition:transform .35s,box-shadow .35s}
+.svc-card:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.svc-card figure{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--cream)}
+.svc-card figure img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.svc-card:hover figure img{transform:scale(1.05)}
+.svc-card .num{position:absolute;top:16px;left:16px;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--white);font-weight:700;font-size:16px}
+.svc-card .tag{position:absolute;bottom:16px;left:16px;padding:4px 12px;border-radius:999px;background:var(--ink);color:var(--cream);font-size:12px;line-height:20px;font-weight:600}
+.svc-body{display:flex;flex-direction:column;gap:12px;padding:24px 24px 28px;flex:1}
+.svc-body h3{font-size:24px;line-height:28px;letter-spacing:-.02em}
+.svc-body p{color:var(--muted);font-size:16px;line-height:24px;text-wrap:pretty}
+.svc-body .btn-3{margin-top:auto;align-self:flex-start;padding-top:12px}
+.extras{margin-top:48px;display:grid;grid-template-columns:240px 1fr;gap:32px;align-items:start;padding:32px;border-radius:var(--r);background:var(--white);border:1px solid var(--line)}
+.extras h3{font-size:20px;line-height:28px;letter-spacing:-.01em}
+.extras h3 small{display:block;font-size:16px;line-height:24px;font-weight:400;color:var(--muted);margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chips li{display:flex;gap:12px;align-items:center;padding:8px 8px 8px 16px;border-radius:999px;background:var(--paper);border:1px solid var(--line);font-size:16px;line-height:24px}
+.chips b{padding:0 12px;border-radius:999px;background:var(--cream);font-size:12px;line-height:24px;font-weight:700;white-space:nowrap}
 
-  .eyebrow{
-    display:inline-block;
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--accent-dark);
-    margin-bottom:14px;
-  }
+/* cenovnik */
+.calc{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:24px;align-items:stretch}
+.calc-l{padding:40px;border-radius:var(--r);background:var(--white);border:1px solid var(--line)}
+.step-lbl{display:flex;align-items:center;gap:12px;font-size:12px;line-height:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.step-lbl b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--cream);font-size:12px;letter-spacing:0}
+.pk-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:32px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:56px;padding:12px 16px;border-radius:var(--r-s);border:1.5px solid var(--line);cursor:pointer;font-weight:500;line-height:20px;transition:border-color .2s,background .2s}
+.opt span small{font-size:12px;line-height:16px;color:var(--muted);font-weight:500;white-space:nowrap}
+.opt span:hover{border-color:var(--cocoa)}
+.opt input:checked+span{border-color:var(--ink);background:var(--ink);color:var(--cream)}
+.opt input:checked+span small{color:var(--apricot)}
+.opt input:focus-visible+span{outline:4px solid var(--cy);outline-offset:2px}
+.opt input:disabled+span{opacity:.36;cursor:not-allowed}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.seg .opt span{min-height:48px;padding:12px 20px;border-radius:999px;justify-content:center}
+.calc-r{position:relative;display:flex;flex-direction:column;padding:40px;border-radius:var(--r);background:var(--ink);color:var(--cream);overflow:hidden}
+.calc-r::after{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--rainbow)}
+.calc-r .eyebrow{color:var(--muted-d)}
+.price{margin:16px 0 8px;font-size:clamp(48px,6vw,80px);line-height:1;font-weight:700;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.price small{font-size:24px;letter-spacing:0;font-weight:500;color:var(--muted-d)}
+.price-name{font-size:20px;line-height:28px;font-weight:600}
+.incl{margin:28px 0 32px;display:grid;gap:12px}
+.incl li{display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:24px;color:var(--muted-d)}
+.incl li svg{color:var(--apricot);width:24px;height:24px}
+.special{margin:-12px 0 28px;padding:16px;border-radius:var(--r-s);background:rgba(247,243,231,.06);font-size:16px;line-height:24px;color:var(--muted-d)}
+.special:empty{display:none}
+.special b{color:var(--cream)}
+.calc-r .btn{margin-top:auto;align-self:stretch}
+.calc-note{margin-top:16px;font-size:12px;line-height:16px;color:var(--muted-d)}
+.full-list{margin-top:24px;border-radius:var(--r);background:var(--white);border:1px solid var(--line)}
+.full-list>summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 32px;cursor:pointer;font-weight:600;font-size:20px;line-height:28px;list-style:none}
+.full-list>summary::-webkit-details-marker{display:none}
+.full-list>summary .pm{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--cream);transition:transform .3s}
+.full-list[open]>summary .pm{transform:rotate(45deg)}
+.pl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 40px;padding:8px 32px 40px}
+.pl-grid h4{font-size:16px;line-height:24px;margin-bottom:4px}
+.pl-grid p{font-size:12px;line-height:16px;color:var(--muted);margin-bottom:12px}
+.pl-grid li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:16px;line-height:24px}
+.pl-grid li b{font-variant-numeric:tabular-nums;white-space:nowrap}
 
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    padding:16px 32px;
-    border-radius:var(--radius-btn);
-    font-weight:700;
-    font-size:15px;
-    border:2px solid transparent;
-    cursor:pointer;
-    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
-    white-space:nowrap;
-  }
-  .btn-primary{
-    background:var(--accent);
-    color:#fff;
-  }
-  .btn-primary:hover{
-    background:var(--accent-dark);
-    box-shadow: 0 10px 30px -8px var(--accent-glow);
-    transform:translateY(-2px);
-  }
-  .btn-outline{
-    background:transparent;
-    color:var(--accent-dark);
-    border-color:var(--accent);
-  }
-  .btn-outline:hover{
-    background:var(--accent-soft);
-    transform:translateY(-2px);
-  }
+/* tok termina */
+.flow{background:var(--ink);color:var(--cream)}
+.flow .eyebrow{color:var(--muted-d)}
+.flow .lead{color:var(--muted-d)}
+.flow-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:80px;align-items:start}
+.flow-side{position:sticky;top:128px}
+.flow-side .h2{margin:24px 0}
+.flow-side .btn{margin-top:40px}
+.steps{position:relative;padding-left:72px}
+.rail,.rail-fill{position:absolute;left:24px;translate:-50% 0;top:24px;bottom:24px;width:4px;border-radius:4px}
+.rail{background:var(--line-d)}
+.rail-fill{background:linear-gradient(180deg,var(--pu),var(--pk),var(--rd),var(--or),var(--go),var(--li),var(--gr),var(--cy));transform-origin:top;transform:scaleY(var(--p,0))}
+.step{position:relative;padding:0 0 56px}
+.step:last-child{padding-bottom:0}
+.step .n{position:absolute;left:-72px;top:0;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--ink);border:2px solid var(--line-d);font-weight:700;color:var(--muted-d);transition:background .4s,color .4s,border-color .4s,transform .4s}
+.step.on .n{background:var(--sc);border-color:var(--sc);color:var(--ink);transform:scale(1.08)}
+.step h3{font-size:28px;line-height:36px;letter-spacing:-.02em;padding-top:4px}
+.step p{margin-top:12px;color:var(--muted-d);max-width:520px;text-wrap:pretty}
+.step .src{display:inline-flex;margin-top:16px;padding:4px 12px;border-radius:999px;background:rgba(247,243,231,.08);font-size:12px;line-height:20px;color:var(--muted-d)}
 
-  /* ---------- HEADER ---------- */
-  header{
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:rgba(253,253,251,0.9);
-    border-bottom:1px solid rgba(20,28,20,0.06);
-    transition: backdrop-filter 0.2s ease, box-shadow 0.2s ease;
-  }
-  header.scrolled{
-    backdrop-filter: blur(12px);
-    box-shadow: 0 2px 20px rgba(20,28,20,0.05);
-  }
-  .nav-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding-top:18px;
-    padding-bottom:18px;
-  }
-  .logo{
-    font-size:22px;
-    font-weight:800;
-    color:var(--accent-dark);
-    letter-spacing:-0.01em;
-  }
-  .logo span{color:var(--text);}
-  nav.desktop-nav{
-    display:flex;
-    align-items:center;
-    gap:36px;
-  }
-  .nav-links{
-    display:flex;
-    gap:32px;
-    list-style:none;
-    margin:0;
-    padding:0;
-  }
-  .nav-links a{
-    font-size:15px;
-    font-weight:600;
-    color:var(--text);
-    transition:color 0.15s ease;
-  }
-  .nav-links a:hover{color:var(--accent-dark);}
+/* galerija */
+.gal{columns:4;column-gap:16px}
+.gal figure{break-inside:avoid;margin-bottom:16px;border-radius:var(--r-s);overflow:hidden;position:relative;background:var(--cream)}
+.gal button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.gal img{width:100%;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;left:12px;bottom:12px;padding:4px 12px;border-radius:999px;background:rgba(43,28,29,.72);color:var(--cream);font-size:12px;line-height:20px;opacity:0;transform:translateY(8px);transition:.3s;pointer-events:none}
+.gal figure:hover figcaption{opacity:1;transform:none}
+.gal .more-item{display:none}
+.gal.all .more-item{display:block}
+.gal-cta{display:flex;justify-content:center;margin-top:40px}
+.lb{width:min(920px,calc(100% - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:var(--r);background:var(--ink);color:var(--cream);overflow:hidden}
+.lb::backdrop{background:rgba(20,12,12,.86);backdrop-filter:blur(8px)}
+.lb-in{display:grid;grid-template-rows:minmax(0,1fr) auto;max-height:calc(100vh - 32px)}
+.lb img{width:100%;height:100%;max-height:calc(100vh - 120px);object-fit:contain;background:#1d1314}
+.lb-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px}
+.lb-bar .ctrl{display:flex;gap:8px}
+.icon-btn{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--line-d);background:transparent;color:inherit;cursor:pointer;transition:background .2s}
+.icon-btn:hover{background:rgba(247,243,231,.1)}
+.icon-btn.light{border-color:var(--line)}
+.icon-btn.light:hover{background:var(--cream)}
 
-  .hamburger{
-    display:none;
-    width:42px;
-    height:42px;
-    border-radius:var(--radius-btn);
-    border:1.5px solid var(--accent);
-    background:transparent;
-    cursor:pointer;
-    align-items:center;
-    justify-content:center;
-  }
-  .hamburger svg{width:20px; height:20px;}
+/* salon */
+.salon{background:var(--cream)}
+.salon .facts li{background:var(--paper)}
+.collage .c2,.collage .c3{border-color:var(--cream)}
+.salon .wrap.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:center}
+.collage{position:relative;aspect-ratio:1/1.05}
+.collage img{position:absolute;object-fit:cover;border-radius:var(--r);box-shadow:var(--sh)}
+.collage .c1{left:0;top:0;width:64%;height:72%}
+.collage .c2{right:0;top:20%;width:48%;height:56%;border:8px solid var(--paper)}
+.collage .c3{left:16%;bottom:0;width:40%;height:36%;border:8px solid var(--paper);object-position:50% 30%}
+.collage .stamp{position:absolute;right:4%;bottom:6%;width:112px;height:112px;border-radius:50%;background:var(--apricot);display:grid;place-items:center;text-align:center;font-weight:700;font-size:12px;line-height:16px;transform:rotate(-8deg);box-shadow:var(--sh)}
+.collage .stamp b{display:block;font-size:28px;line-height:32px}
+.salon-copy .h2{margin:24px 0 28px}
+.salon-copy p{color:var(--muted);margin-bottom:16px;text-wrap:pretty}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.facts li{display:flex;gap:12px;align-items:flex-start;padding:20px;border-radius:var(--r-s);background:var(--white);border:1px solid var(--line);font-size:16px;line-height:24px}
+.facts li svg{color:var(--apricot-2);width:24px;height:24px}
+.facts b{display:block}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:var(--pad);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{padding:40px 24px;border-left:1px solid var(--line)}
+.stats div:first-child{border-left:0;padding-left:0}
+.stats b{display:block;font-size:clamp(40px,5vw,64px);line-height:1;font-weight:700;letter-spacing:-.04em}
+.stats b em{font-size:1.1em}
+.stats span{display:block;margin-top:12px;color:var(--muted);font-size:16px;line-height:24px}
 
-  .mobile-menu{
-    display:none;
-    flex-direction:column;
-    gap:0;
-    background:#fff;
-    border-bottom:1px solid rgba(20,28,20,0.08);
-  }
-  .mobile-menu.open{display:flex;}
-  .mobile-menu a{
-    padding:16px 24px;
-    font-weight:600;
-    font-size:16px;
-    border-top:1px solid rgba(20,28,20,0.06);
-    color:var(--text);
-  }
-  .mobile-menu .btn{
-    margin:16px 24px 20px 24px;
-  }
+/* utisci */
+.rev{overflow:hidden}
+.rev-top{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:64px;align-items:end;margin-bottom:56px}
+.big-q{font-family:var(--serif);font-size:clamp(28px,3.4vw,44px);line-height:1.15;letter-spacing:-.01em;text-wrap:balance;margin-top:24px}
+.big-q::before{content:"„"}
+.big-q::after{content:"\201C"}
+.who{display:flex;align-items:center;gap:16px;margin-top:28px}
+.av{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--c,var(--apricot));color:var(--white);font-weight:700;flex:none}
+.who b{display:block;line-height:20px}
+.who small{display:block;color:var(--muted);font-size:12px;line-height:16px}
+.rev-meta{display:grid;gap:16px;justify-items:start}
+.rev-meta .count{font-size:80px;line-height:80px;font-weight:700;letter-spacing:-.05em}
+.rev-meta p{color:var(--muted);text-wrap:balance}
+.rev-nav{display:flex;gap:8px}
+.rev-row{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px var(--gut) 24px;margin:0 calc(var(--gut)*-1);scrollbar-width:none}
+.rev-row::-webkit-scrollbar{display:none}
+.rcard{flex:0 0 min(384px,84vw);scroll-snap-align:start;display:flex;flex-direction:column;gap:20px;padding:32px;border-radius:var(--r);background:var(--white);border:1px solid var(--line)}
+.rcard p{text-wrap:pretty}
+.rcard .who{margin-top:auto}
+.stars{display:flex;gap:4px;color:var(--apricot-2)}
+.stars svg{width:16px;height:16px;fill:currentColor}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    padding-top:72px;
-    padding-bottom:72px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero::before{
-    content:"";
-    position:absolute;
-    top:-120px;
-    right:-120px;
-    width:480px;
-    height:480px;
-    background:radial-gradient(circle, var(--accent-glow) 0%, rgba(70,124,69,0) 70%);
-    z-index:0;
-    pointer-events:none;
-  }
-  .hero-grid{
-    position:relative;
-    z-index:1;
-    display:grid;
-    grid-template-columns:1.1fr 1fr;
-    gap:56px;
-    align-items:center;
-  }
-  .hero h1{
-    font-size:clamp(34px, 5vw, 56px);
-    font-weight:800;
-    letter-spacing:-0.02em;
-  }
-  .hero-sub{
-    margin-top:22px;
-    font-size:18px;
-    max-width:46ch;
-  }
-  .hero-cta{
-    margin-top:34px;
-    display:flex;
-    gap:16px;
-    flex-wrap:wrap;
-  }
-  .hero-badges{
-    margin-top:40px;
-    display:flex;
-    gap:28px;
-    flex-wrap:wrap;
-  }
-  .hero-badge{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-size:14px;
-    font-weight:600;
-    color:var(--text-muted);
-  }
-  .hero-badge svg{width:18px; height:18px; color:var(--accent); flex-shrink:0;}
+/* molbe */
+.pleas{background:var(--cream)}
+.pleas .box{position:relative;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:center;padding:64px;border-radius:32px;background:var(--white);border:1px solid var(--line);overflow:hidden}
+.pleas .box::before{content:"";position:absolute;inset:0 auto 0 0;width:8px;background:linear-gradient(180deg,var(--pu),var(--pk),var(--or),var(--go),var(--li),var(--cy))}
+.pleas .h2{margin-top:24px}
+.pleas .lead{margin-top:20px}
+.plea{min-height:208px;display:flex;flex-direction:column;justify-content:center}
+.plea .no{font-size:12px;line-height:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.plea blockquote{margin-top:16px;font-family:var(--serif);font-size:clamp(24px,2.6vw,36px);line-height:1.2;text-wrap:balance;transition:opacity .35s,transform .35s}
+.plea blockquote.out{opacity:0;transform:translateY(8px)}
+.plea-ctrl{display:flex;align-items:center;gap:16px;margin-top:32px}
+.dots{display:flex;flex-wrap:wrap;gap:8px}
+.dots button{width:12px;height:12px;padding:0;border:0;border-radius:50%;background:var(--line);cursor:pointer;transition:background .3s,transform .3s}
+.dots button[aria-current="true"]{background:var(--ink);transform:scale(1.25)}
 
-  .hero-img-placeholder{
-    width:100%;
-    aspect-ratio: 4/5;
-    border-radius:var(--radius-card);
-    background:var(--accent-soft);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:24px;
-    font-weight:600;
-    color:var(--accent-dark);
-    font-size:14px;
-    letter-spacing:0.03em;
-    text-transform:uppercase;
-  }
+/* saveti */
+.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.tip{border-radius:var(--r);background:var(--white);border:1px solid var(--line);overflow:hidden}
+.tip summary{display:flex;flex-direction:column;gap:16px;padding:32px;cursor:pointer;list-style:none}
+.tip summary::-webkit-details-marker{display:none}
+.tip .tg{align-self:flex-start;padding:4px 12px;border-radius:999px;background:var(--c);color:var(--white);font-size:12px;line-height:20px;font-weight:700}
+.tip h3{font-size:24px;line-height:32px;letter-spacing:-.02em;text-wrap:balance}
+.tip summary p{color:var(--muted);text-wrap:pretty}
+.tip .open-lbl{display:flex;align-items:center;gap:8px;font-weight:600}
+.tip .open-lbl svg{transition:transform .3s}
+.tip[open] .open-lbl svg{transform:rotate(180deg)}
+.tip-body{padding:0 32px 32px;font-size:16px;line-height:24px;color:var(--muted)}
+.tip-body li{padding:12px 0;border-top:1px solid var(--line)}
+.tip-body li b{color:var(--ink)}
+.tip-body p+p{margin-top:12px}
 
-  /* ---------- BOL UVOD ---------- */
-  .pain{
-    padding-top:0;
-    padding-bottom:72px;
-  }
-  .pain-box{
-    background:var(--accent-softer);
-    border-radius:var(--radius-card);
-    padding:40px;
-  }
-  .pain-box p{
-    font-size:19px;
-    color:var(--text);
-    max-width:68ch;
-    font-weight:500;
-  }
+/* faq */
+.faq{background:var(--cream)}
+.faq .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:80px;align-items:start}
+.faq-side{position:sticky;top:128px}
+.faq-side .h2{margin:24px 0}
+.faq-side .btn-2{margin-top:32px}
+.qa{border-bottom:1px solid var(--line)}
+.qa:first-child{border-top:1px solid var(--line)}
+.qa summary{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 0;cursor:pointer;list-style:none;font-size:20px;line-height:28px;font-weight:600;text-wrap:balance}
+.qa summary::-webkit-details-marker{display:none}
+.qa .pm{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);transition:transform .3s,background .3s}
+.qa[open] .pm{transform:rotate(45deg);background:var(--apricot);border-color:var(--apricot)}
+.qa p{padding:0 64px 28px 0;color:var(--muted);text-wrap:pretty}
 
-  /* ---------- SERVICES ---------- */
-  .section-head{
-    max-width:640px;
-    margin-bottom:56px;
-  }
-  .section-head h2{
-    font-size:clamp(28px, 3.4vw, 40px);
-    margin-top:10px;
-  }
-  .section-head p{
-    margin-top:16px;
-    font-size:17px;
-    max-width:60ch;
-  }
+/* kontakt */
+.contact{background:var(--ink);color:var(--cream)}
+.contact .eyebrow{color:var(--muted-d)}
+.ct-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;margin-top:56px}
+.ct-card{padding:40px;border-radius:var(--r);background:rgba(247,243,231,.05);border:1px solid var(--line-d)}
+.ct-list{display:grid;gap:24px}
+.ct-list li{display:flex;gap:16px;align-items:flex-start}
+.ct-list .ic{display:grid;place-items:center;width:48px;height:48px;border-radius:16px;background:rgba(246,171,74,.14);color:var(--apricot);flex:none}
+.ct-list small{display:block;font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-d);font-weight:700}
+.ct-list b,.ct-list a{display:block;font-size:20px;line-height:28px;font-weight:600;text-decoration:none}
+.ct-list a:hover{color:var(--apricot)}
+.hours{margin-top:32px;padding-top:32px;border-top:1px solid var(--line-d)}
+.hours li{display:flex;justify-content:space-between;padding:8px 12px;border-radius:12px;color:var(--muted-d)}
+.hours li.today{background:rgba(246,171,74,.14);color:var(--cream);font-weight:600}
+.map{position:relative;border-radius:var(--r);overflow:hidden;min-height:480px;background:var(--cocoa)}
+.map iframe{position:absolute;left:0;top:-160px;width:100%;height:calc(100% + 200px);border:0;filter:grayscale(.3) contrast(1.05);pointer-events:none}
+.map-card{position:absolute;left:24px;top:24px;z-index:1;display:flex;gap:12px;align-items:center;padding:12px 20px 12px 12px;border-radius:var(--r-s);background:var(--white);color:var(--ink);box-shadow:var(--sh)}
+.map-card svg{width:40px;height:40px}
+.map-card b{display:block;line-height:20px}
+.map-card small{display:block;font-size:12px;line-height:16px;color:var(--muted)}
+.ct-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
+.ct-cta .btn-2{color:var(--cream)}
+.ct-cta .btn-2:hover{background:var(--cream);color:var(--ink)}
 
-  .services-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:28px;
-  }
-  .service-card{
-    background:#fff;
-    border:1px solid rgba(20,28,20,0.08);
-    border-radius:var(--radius-card);
-    padding:36px 30px;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-  }
-  .service-card:hover{
-    box-shadow: 0 20px 45px -20px rgba(20,28,20,0.18);
-    transform:translateY(-4px);
-  }
-  .service-icon{
-    width:54px;
-    height:54px;
-    border-radius:16px;
-    background:var(--accent-soft);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:22px;
-  }
-  .service-icon svg{width:26px; height:26px; color:var(--accent-dark); stroke-width:1.6;}
-  .service-card h3{
-    font-size:19px;
-    font-weight:700;
-    margin-bottom:12px;
-  }
-  .service-card p{font-size:15px;}
+/* footer */
+.foot{background:var(--ink);color:var(--muted-d);border-top:1px solid var(--line-d);padding:64px 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot .brand b{color:var(--cream)}
+.foot .brand small{color:var(--muted-d)}
+.foot p{margin-top:20px;max-width:360px;font-size:16px;line-height:24px}
+.foot h4{font-size:12px;line-height:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);margin-bottom:16px}
+.foot li{padding:4px 0}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--cream)}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:56px;padding-top:24px;border-top:1px solid var(--line-d);font-size:12px;line-height:16px}
+.foot-line{height:4px;background:var(--rainbow)}
 
-  /* ---------- PRICING ---------- */
-  .pricing-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:28px;
-  }
-  .price-card{
-    background:#fff;
-    border:1px solid rgba(20,28,20,0.08);
-    border-radius:var(--radius-card);
-    padding:34px 30px;
-    display:flex;
-    flex-direction:column;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-  }
-  .price-card.featured{
-    border-color:var(--accent);
-    box-shadow: 0 20px 45px -22px var(--accent-glow);
-  }
-  .price-card:hover{
-    transform:translateY(-4px);
-    box-shadow: 0 20px 45px -20px rgba(20,28,20,0.16);
-  }
-  .price-tag{
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--accent-dark);
-    margin-bottom:10px;
-  }
-  .price-card h3{font-size:21px; margin-bottom:18px;}
-  .price-list{
-    list-style:none;
-    margin:0 0 24px 0;
-    padding:0;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    flex-grow:1;
-  }
-  .price-list li{
-    display:flex;
-    justify-content:space-between;
-    gap:12px;
-    font-size:14.5px;
-    color:var(--text-muted);
-    padding-bottom:12px;
-    border-bottom:1px dashed rgba(20,28,20,0.1);
-  }
-  .price-list li span.price{
-    font-weight:700;
-    color:var(--text);
-    white-space:nowrap;
-  }
-  .price-note{
-    margin-top:28px;
-    font-size:14px;
-    color:var(--text-faint);
-    max-width:65ch;
-  }
+/* mobilna traka */
+.mbar{display:none}
 
-  /* ---------- ABOUT ---------- */
-  .about-grid{
-    display:grid;
-    grid-template-columns:0.9fr 1.1fr;
-    gap:56px;
-    align-items:center;
-  }
-  .about-img-placeholder{
-    width:100%;
-    aspect-ratio: 4/3;
-    border-radius:var(--radius-card);
-    background:var(--accent-soft);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:24px;
-    font-weight:600;
-    color:var(--accent-dark);
-    font-size:14px;
-    letter-spacing:0.03em;
-    text-transform:uppercase;
-  }
-  .about-points{
-    margin-top:30px;
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-  }
-  .about-point{
-    display:flex;
-    gap:14px;
-    align-items:flex-start;
-  }
-  .about-point svg{width:22px; height:22px; color:var(--accent); flex-shrink:0; margin-top:2px;}
-  .about-point-text h4{font-size:16px; font-weight:700; margin-bottom:4px;}
-  .about-point-text p{font-size:14.5px;}
+/* zakazivanje - modal */
+.bk{width:min(880px,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:0;border:0;border-radius:28px;background:var(--paper);color:var(--ink);box-shadow:0 40px 80px -24px rgba(20,12,12,.5);overflow:hidden}
+.bk[open]{animation:bkIn .45s cubic-bezier(.2,.8,.2,1)}
+.bk::backdrop{background:rgba(31,20,20,.64);backdrop-filter:blur(8px)}
+@keyframes bkIn{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+.bk-in{display:grid;grid-template-columns:280px minmax(0,1fr);grid-template-rows:minmax(0,1fr);height:min(720px,calc(100dvh - 32px))}
+.bk-side{position:relative;display:flex;flex-direction:column;padding:32px;background:var(--ink);color:var(--cream);overflow:hidden}
+.bk-side::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--rainbow)}
+.bk-side .brand{margin:0 0 40px}
+.bk-side .brand svg{width:40px;height:40px}
+.bk-side .brand b{font-size:16px;line-height:20px}
+.bk-side .brand small{color:var(--muted-d)}
+.bk-steps{display:grid;gap:4px;counter-reset:s}
+.bk-steps li{display:flex;align-items:center;gap:12px;padding:8px 0;color:var(--muted-d);font-size:16px;line-height:24px;transition:color .3s}
+.bk-steps li::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1.5px solid var(--line-d);font-size:12px;font-weight:700;flex:none;transition:.3s}
+.bk-steps li.cur{color:var(--cream);font-weight:600}
+.bk-steps li.cur::before{background:var(--apricot);border-color:var(--apricot);color:var(--ink)}
+.bk-steps li.done::before{content:"✓";background:rgba(246,171,74,.16);border-color:transparent;color:var(--apricot)}
+.bk-sum{margin-top:auto;padding:20px;border-radius:var(--r-s);background:rgba(247,243,231,.06);font-size:12px;line-height:16px;color:var(--muted-d)}
+.bk-sum b{display:block;margin-top:4px;font-size:28px;line-height:36px;color:var(--cream);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.bk-sum span{display:block;margin-top:4px}
+.bk-main{display:grid;grid-template-rows:auto minmax(0,1fr) auto;min-width:0;min-height:0}
+.bk-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 32px 0}
+.bk-prog{flex:1;height:4px;border-radius:4px;background:var(--line);overflow:hidden}
+.bk-prog i{display:block;height:100%;width:var(--w,20%);background:var(--rainbow);background-size:880px 4px;transition:width .4s}
+.bk-body{overflow-y:auto;padding:28px 32px 32px;overscroll-behavior:contain}
+.pane{display:none}
+.pane.cur{display:block;animation:paneIn .35s ease}
+@keyframes paneIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+.pane h3{font-size:28px;line-height:36px;letter-spacing:-.02em}
+.pane .sub{color:var(--muted);margin:8px 0 24px}
+.pane h4{font-size:12px;line-height:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:24px 0 12px}
+.svc-pick{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.svc-pick .opt span{min-height:64px;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px}
+.svc-pick .opt.wide{grid-column:1/-1}
+.size-pick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.size-pick .opt span{flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:4px;min-height:88px}
+.size-pick .opt span small{white-space:normal}
+.size-pick .opt svg{width:24px;height:24px}
+.coat-pick{display:flex;gap:8px}
+.coat-pick .opt span{border-radius:999px;min-height:48px;padding:12px 20px}
+.add-pick{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chk span{justify-content:flex-start !important}
+.chk span::before{content:"";width:20px;height:20px;border-radius:6px;border:1.5px solid currentColor;flex:none;opacity:.6}
+.chk input:checked+span::before{background:var(--apricot) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%232b1c1d' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/16px no-repeat;border-color:var(--apricot);opacity:1}
+.chk span em{margin-left:auto;white-space:nowrap;font-family:var(--sans);font-style:normal;font-size:12px;line-height:16px;font-weight:600;color:var(--muted)}
+.chk input:checked+span em{color:var(--apricot)}
+.fld{display:grid;gap:8px}
+.fld label{font-size:12px;line-height:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fld input,.fld textarea{width:100%;min-height:52px;padding:12px 16px;border-radius:var(--r-s);border:1.5px solid var(--line);background:var(--white);font-size:16px;line-height:24px;transition:border-color .2s,box-shadow .2s}
+.fld textarea{min-height:96px;resize:vertical}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 4px rgba(246,171,74,.3)}
+.fld.err input{border-color:var(--rd)}
+.fld .msg{display:none;font-size:12px;line-height:16px;color:var(--rd)}
+.fld.err .msg{display:block}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.row2+.row2,.row2+.fld,.fld+.fld{margin-top:16px}
+.row2>.fld+.fld{margin-top:0}
+.cal{border-radius:var(--r-s);background:var(--white);border:1px solid var(--line);padding:16px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-head b{font-size:16px;line-height:24px;text-transform:capitalize}
+.cal-head .icon-btn{width:40px;height:40px}
+.cal-head .icon-btn:disabled{opacity:.3;cursor:not-allowed}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal-grid .dn{font-size:12px;line-height:24px;font-weight:700;color:var(--muted)}
+.cal-grid button{aspect-ratio:1;max-height:48px;border:0;border-radius:12px;background:transparent;font-size:16px;font-weight:500;cursor:pointer;transition:background .2s,color .2s;font-variant-numeric:tabular-nums}
+.cal-grid button:hover:not(:disabled){background:var(--cream)}
+.cal-grid button:disabled{color:rgba(43,28,29,.24);cursor:not-allowed;text-decoration:line-through}
+.cal-grid button.today{box-shadow:inset 0 0 0 1.5px var(--apricot)}
+.cal-grid button[aria-pressed="true"]{background:var(--ink);color:var(--cream)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.slots .opt span{justify-content:center;min-height:48px;border-radius:12px;font-variant-numeric:tabular-nums}
+.slot-note{margin-top:12px;font-size:12px;line-height:16px;color:var(--muted)}
+.review{border-radius:var(--r-s);background:var(--white);border:1px solid var(--line);overflow:hidden}
+.review dl{margin:0;display:grid;grid-template-columns:auto 1fr}
+.review dt,.review dd{margin:0;padding:12px 20px;border-bottom:1px solid var(--line);font-size:16px;line-height:24px}
+.review dt{color:var(--muted)}
+.review dd{text-align:right;font-weight:600}
+.review .tot{display:flex;justify-content:space-between;align-items:baseline;padding:20px;background:var(--cream)}
+.review .tot b{font-size:28px;line-height:32px;letter-spacing:-.02em}
+.send{display:none;gap:8px}
+.bk-foot.last .send{display:flex}
+.bk-foot.last #bkNext,.bk-foot.last .hint{display:none}
+.send .btn,.send .btn-2{padding:0 20px}
+.fine{margin-top:20px;font-size:12px;line-height:20px;color:var(--muted);text-wrap:pretty}
+.fine .btn-3{font-size:12px;line-height:16px;padding:0}
+.review dt,.review dd{padding:8px 20px !important}
+.done{text-align:center;padding:32px 0}
+.done .ok{display:grid;place-items:center;width:96px;height:96px;margin:0 auto 24px;border-radius:50%;background:var(--cream)}
+.done .ok svg{width:72px;height:72px}
+.done p{max-width:420px;margin:12px auto 0;color:var(--muted)}
+.done .btn{margin-top:32px}
+.bk-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 32px;border-top:1px solid var(--line);background:var(--paper)}
+.bk-foot .btn,.bk-foot .btn-2{min-height:48px;padding:0 24px}
+.bk-foot .hint{font-size:12px;line-height:16px;color:var(--muted)}
+.bk-foot .hint a{font-weight:700;text-decoration:none;color:var(--ink)}
+.bk-x{background:var(--white)}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 
-  /* ---------- CONTACT ---------- */
-  .contact-wrap{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-  }
-  .contact-info-list{
-    display:flex;
-    flex-direction:column;
-    gap:26px;
-    margin-top:30px;
-  }
-  .contact-info-item{
-    display:flex;
-    gap:16px;
-    align-items:flex-start;
-  }
-  .contact-info-item svg{width:22px; height:22px; color:var(--accent); flex-shrink:0; margin-top:3px;}
-  .contact-info-item h4{font-size:15px; font-weight:700; margin-bottom:4px;}
-  .contact-info-item p{font-size:14.5px;}
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
 
-  .map-placeholder{
-    margin-top:30px;
-    width:100%;
-    height:220px;
-    border-radius:var(--radius-card);
-    background:var(--accent-soft);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:24px;
-    font-weight:600;
-    color:var(--accent-dark);
-    font-size:13px;
-    letter-spacing:0.03em;
-    text-transform:uppercase;
-  }
-
-  .contact-form{
-    background:#fff;
-    border:1px solid rgba(20,28,20,0.08);
-    border-radius:var(--radius-card);
-    padding:36px;
-  }
-  .contact-form h3{font-size:20px; margin-bottom:6px;}
-  .contact-form p.sub{font-size:14.5px; margin-bottom:26px;}
-  .form-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-    margin-bottom:16px;
-  }
-  .form-field{
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-    margin-bottom:16px;
-  }
-  .form-field label{
-    font-size:13px;
-    font-weight:600;
-    color:var(--text-muted);
-  }
-  .form-field input,
-  .form-field select,
-  .form-field textarea{
-    border:1px solid rgba(20,28,20,0.15);
-    border-radius:12px;
-    padding:13px 16px;
-    font-family:'Montserrat', sans-serif;
-    font-size:14.5px;
-    color:var(--text);
-    background:var(--bg);
-  }
-  .form-field input:focus,
-  .form-field select:focus,
-  .form-field textarea:focus{
-    outline:none;
-    border-color:var(--accent);
-  }
-  .form-field textarea{resize:vertical; min-height:100px;}
-  .contact-form .btn{width:100%; margin-top:6px;}
-
-  /* ---------- CTA CLOSE ---------- */
-  .cta-close{
-    position:relative;
-    overflow:hidden;
-  }
-  .cta-box{
-    position:relative;
-    background:var(--accent-dark);
-    border-radius:var(--radius-card);
-    padding:72px 56px;
-    text-align:center;
-    overflow:hidden;
-  }
-  .cta-box::before{
-    content:"";
-    position:absolute;
-    top:-80px;
-    left:50%;
-    transform:translateX(-50%);
-    width:520px;
-    height:320px;
-    background:radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-    pointer-events:none;
-  }
-  .cta-box h2{
-    color:#fff;
-    font-size:clamp(26px, 3.4vw, 38px);
-    position:relative;
-    z-index:1;
-  }
-  .cta-box p{
-    color:rgba(255,255,255,0.78);
-    margin-top:16px;
-    font-size:17px;
-    max-width:55ch;
-    margin-left:auto;
-    margin-right:auto;
-    position:relative;
-    z-index:1;
-  }
-  .cta-box .btn{
-    margin-top:30px;
-    position:relative;
-    z-index:1;
-  }
-  .cta-box .btn-primary{
-    background:#fff;
-    color:var(--accent-dark);
-  }
-  .cta-box .btn-primary:hover{
-    background:var(--accent-soft);
-    box-shadow:none;
-  }
-
-  /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid rgba(20,28,20,0.08);
-    padding-top:48px;
-    padding-bottom:48px;
-  }
-  .footer-grid{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    flex-wrap:wrap;
-    gap:32px;
-  }
-  .footer-logo{
-    font-size:20px;
-    font-weight:800;
-    color:var(--accent-dark);
-  }
-  .footer-logo span{color:var(--text);}
-  .footer-tagline{
-    margin-top:10px;
-    font-size:14px;
-    max-width:32ch;
-  }
-  .footer-links{
-    display:flex;
-    gap:40px;
-    flex-wrap:wrap;
-  }
-  .footer-col h5{
-    font-size:13px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:0.05em;
-    color:var(--text-faint);
-    margin-bottom:14px;
-  }
-  .footer-col a{
-    display:block;
-    font-size:14.5px;
-    color:var(--text-muted);
-    margin-bottom:10px;
-  }
-  .footer-col a:hover{color:var(--accent-dark);}
-  .footer-bottom{
-    margin-top:40px;
-    padding-top:24px;
-    border-top:1px solid rgba(20,28,20,0.08);
-    font-size:13px;
-    color:var(--text-faint);
-    text-align:center;
-  }
-
-  /* ---------- SCROLL REVEAL ---------- */
-  .reveal{
-    opacity:1;
-    transform:translateY(0);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .reveal.pre{
-    opacity:0.001;
-    transform:translateY(14px);
-  }
-  .reveal.in{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 991px){
-    .desktop-nav{display:none;}
-    .hamburger{display:flex;}
-    .hero-grid{grid-template-columns:1fr;}
-    .hero-img-placeholder{order:-1; aspect-ratio:16/10;}
-    .about-grid{grid-template-columns:1fr;}
-    .contact-wrap{grid-template-columns:1fr;}
-    .services-grid{grid-template-columns:1fr 1fr;}
-    .pricing-grid{grid-template-columns:1fr;}
-  }
-
-  @media (max-width: 768px){
-    .wrap{padding-left:20px; padding-right:20px;}
-    .section{padding-top:72px; padding-bottom:72px;}
-    .services-grid{grid-template-columns:1fr;}
-    .form-row{grid-template-columns:1fr;}
-    .cta-box{padding:48px 24px;}
-    .footer-grid{flex-direction:column;}
-    .hero-cta{flex-direction:column; align-items:stretch;}
-    .hero-cta .btn{width:100%;}
-  }
+/* responsive */
+@media (max-width:1180px){
+  .nav{gap:20px}
+  .nav a.opt-hide{display:none}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .svc-card{flex-direction:row}
+  .svc-card figure{width:44%;aspect-ratio:auto;flex:none}
+  .pl-grid{grid-template-columns:repeat(2,1fr)}
+  .f-open{left:-4%}
+  .f-price{right:-2%}
+  .seal{left:-2%}
+}
+@media (max-width:1024px){
+  :root{--pad:96px}
+  .nav,.hdr .btn{display:none}
+  .burger{display:grid}
+  .mnav{position:fixed;inset:120px 0 0;z-index:49;display:flex;flex-direction:column;gap:8px;padding:24px var(--gut) 40px;background:var(--paper);transform:translateY(-8px);opacity:0;visibility:hidden;transition:.3s;overflow:auto}
+  .mnav.open{opacity:1;visibility:visible;transform:none}
+  .mnav a{font-size:28px;line-height:36px;font-weight:700;letter-spacing:-.02em;text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line)}
+  .mnav .btn{margin-top:24px;font-size:16px;line-height:24px;letter-spacing:0;border-bottom:0}
+  .hero .wrap{grid-template-columns:1fr;gap:72px}
+  .stage{justify-self:center;max-width:480px}
+  .head{grid-template-columns:1fr;gap:24px}
+  .pain-grid{grid-template-columns:repeat(2,1fr)}
+  .calc{grid-template-columns:1fr}
+  .flow-wrap,.salon .wrap.split,.faq .wrap{grid-template-columns:1fr;gap:56px}
+  .flow-side,.faq-side{position:static}
+  .salon .collage{max-width:600px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stats div:nth-child(3){border-left:0;padding-left:0}
+  .stats div:nth-child(n+3){border-top:1px solid var(--line)}
+  .rev-top{grid-template-columns:1fr;gap:40px}
+  .pleas .box{grid-template-columns:1fr;gap:32px;padding:48px}
+  .tips{grid-template-columns:1fr}
+  .ct-grid{grid-template-columns:1fr}
+  .gal{columns:3}
+  .bk-in{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}
+  .bk-side{padding:20px 24px 16px;flex-direction:row;align-items:center;gap:16px}
+  .bk-side .brand,.bk-sum span{display:none}
+  .bk-steps{display:flex;gap:4px;flex:1}
+  .bk-steps li{font-size:0;padding:0}
+  .bk-steps li.cur{font-size:16px;gap:8px}
+  .bk-sum{margin:0;padding:8px 12px;text-align:right}
+  .bk-sum b{font-size:20px;line-height:24px;margin:0}
+  .bk-in{height:calc(100dvh - 32px)}
+}
+@media (max-width:760px){
+  :root{--pad:80px;--gut:16px}
+  .topbar .hide-s,.pill .hide-s{display:none}
+  .topbar ul{gap:16px}
+  .hero{padding-top:40px}
+  .trust{grid-template-columns:1fr;gap:12px}
+  .cta-row .btn,.cta-row .btn-2{flex:1 1 100%}
+  .stage{max-width:100%;width:calc(100% - 32px)}
+  .f-open{left:-16px;top:8%;padding:12px 16px}
+  .f-price{right:-16px;bottom:12%;min-width:0;padding:12px 16px}
+  .f-price b{font-size:24px;line-height:28px}
+  .seal{width:112px;height:112px;left:-16px;bottom:-24px}
+  .seal .mark{width:48px;height:48px}
+  .track li{font-size:28px;line-height:36px;gap:28px}
+  .track ul{gap:28px;padding-right:28px}
+  .pain-grid{grid-template-columns:1fr}
+  .pain-card{padding:28px 24px}
+  .svc-grid{grid-template-columns:1fr}
+  .svc-card{flex-direction:column}
+  .svc-card figure{width:auto;aspect-ratio:4/3}
+  .extras{grid-template-columns:1fr;padding:24px;gap:20px}
+  .calc-l,.calc-r{padding:28px 20px}
+  .pk-list{grid-template-columns:1fr}
+  .pl-grid{grid-template-columns:1fr;padding:0 20px 28px}
+  .full-list>summary{padding:20px}
+  .steps{padding-left:64px}
+  .step .n{left:-64px}
+  .step h3{font-size:24px;line-height:32px}
+  .gal{columns:2;column-gap:12px}
+  .gal figure{margin-bottom:12px}
+  .collage .stamp{width:96px;height:96px}
+  .collage .stamp b{font-size:24px;line-height:28px}
+  .facts{grid-template-columns:1fr}
+  .stats div{padding:28px 16px}
+  .stats div:nth-child(odd){padding-left:0;border-left:0}
+  .rev-meta .count{font-size:64px;line-height:64px}
+  .rcard{padding:24px}
+  .pleas .box{padding:40px 24px}
+  .qa summary{font-size:16px;line-height:24px;padding:24px 0}
+  .qa p{padding-right:0}
+  .ct-card{padding:28px 20px}
+  .map{min-height:360px}
+  .ct-list b,.ct-list a{font-size:16px;line-height:24px}
+  .foot-grid{grid-template-columns:1fr}
+  .foot{padding-bottom:112px}
+  .mbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:grid;grid-template-columns:auto 1fr;gap:8px;padding:8px;border-radius:999px;background:rgba(43,28,29,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:var(--sh);transform:translateY(120%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+  .mbar.show{transform:none}
+  .mbar a{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:rgba(247,243,231,.1);color:var(--cream)}
+  .mbar .btn{min-height:48px}
+  .bk{width:100%;max-width:100%;max-height:100dvh;height:100dvh;border-radius:0;margin:0}
+  .bk-in{height:100dvh}
+  .bk-top{padding:16px 16px 0}
+  .bk-body{padding:20px 16px 24px}
+  .bk-foot{padding:12px 16px}
+  .bk-foot .hint{display:none}
+  .bk-foot{justify-content:stretch}
+  .bk-foot .btn{flex:1}
+  .svc-pick,.add-pick{grid-template-columns:1fr}
+  .size-pick{grid-template-columns:1fr 1fr}
+  .slots{grid-template-columns:repeat(3,1fr)}
+  .row2{grid-template-columns:1fr}
+  .bk-foot.last #bkBack{display:none}
+  .bk-foot.last .send{flex:1}
+  .send .btn,.send .btn-2{flex:1;padding:0 12px}
+  .bk-sum b{font-size:16px;white-space:nowrap}
+  .bk-steps li.cur{font-size:0;gap:0}
+  .bk-steps{gap:8px}
+  .bk-side{padding:16px}
+  .pane h3{font-size:24px;line-height:32px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-delay:0s !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .arch .glint,.track{animation:none !important}
+  .seal svg.ring{animation:none !important}
+}
 </style>
 </head>
-<body>
+<body class="no-js">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="95 71 350 343"><path d="M155.0 169.8 L159.0 169.1 L166.0 169.4 L169.0 170.5 L175.0 174.4 L178.6 178.0 L183.4 186.0 L185.5 192.0 L186.5 198.0 L186.5 204.0 L185.5 210.0 L183.5 215.0 L180.6 220.0 L176.9 224.0 L172.0 227.5 L164.0 229.5 L158.0 228.4 L154.0 226.3 L150.8 224.0 L145.9 219.0 L145.3 217.0 L143.5 215.0 L141.6 211.0 L142.0 209.3 L145.4 216.0 L152.0 222.2 L155.2 224.0 L159.0 225.3 L167.0 225.0 L169.6 224.0 L173.0 221.7 L176.0 218.4 L178.1 215.0 L180.1 210.0 L181.1 205.0 L181.0 197.5 L180.2 193.0 L179.0 189.2 L177.1 185.0 L174.0 180.4 L170.6 177.0 L167.6 175.0 L165.0 173.8 L161.0 172.8 L158.0 172.7 L154.0 173.6 L150.0 175.7 L148.0 177.3 L143.3 183.0 L141.3 188.0 L140.9 191.0 L140.0 193.0 L139.3 191.0 L139.5 189.0 L140.4 188.0 L140.4 186.0 L145.2 177.0 L148.0 173.9 L152.0 171.1 L155.0 169.8ZM140.0 201.9 L140.9 204.0 L141.0 205.8 L140.0 205.8 L139.5 205.0 L139.4 203.0 L140.0 201.9Z" fill="#dc1d8e"/><path d="M199.0 217.9 L203.0 217.3 L215.0 217.8 L221.0 219.0 L222.4 220.0 L222.0 221.0 L215.0 221.9 L210.9 223.0 L205.0 225.6 L197.0 231.6 L193.8 235.0 L189.5 241.0 L185.6 248.0 L182.0 257.2 L179.4 265.0 L175.2 283.0 L170.8 296.0 L166.3 306.0 L159.3 317.0 L150.0 326.3 L144.0 330.0 L136.0 332.7 L127.0 333.0 L126.5 332.0 L127.0 331.4 L137.4 327.0 L144.0 322.2 L147.5 318.0 L151.5 311.0 L153.5 306.0 L155.2 298.0 L156.2 287.0 L156.4 276.0 L158.8 261.0 L162.8 248.0 L168.7 237.0 L174.6 230.0 L181.0 224.7 L191.0 219.8 L199.0 217.9ZM207.0 220.0 L196.0 221.6 L190.0 223.7 L185.6 226.0 L181.2 229.0 L176.9 233.0 L172.8 238.0 L169.8 243.0 L165.9 252.0 L162.6 265.0 L160.9 281.0 L160.5 297.0 L158.2 308.0 L159.0 308.5 L163.4 301.0 L168.1 290.0 L172.3 277.0 L176.6 260.0 L179.6 252.0 L183.6 244.0 L186.6 239.0 L192.0 232.3 L198.0 226.9 L203.0 223.6 L208.0 221.2 L208.2 220.0 L207.0 220.0Z" fill="#803f98"/><path d="M128.0 334.8 L135.0 334.0 L140.0 335.0 L145.0 336.9 L151.0 341.4 L154.5 346.0 L157.2 352.0 L158.5 357.0 L158.6 366.0 L157.4 373.0 L154.1 381.0 L150.4 387.0 L147.2 391.0 L139.5 397.0 L139.9 399.0 L139.1 402.0 L133.0 406.7 L130.0 406.7 L127.0 407.9 L125.0 408.0 L119.0 407.1 L115.0 405.7 L113.6 404.0 L113.4 403.0 L113.3 400.0 L114.1 399.0 L114.0 398.0 L112.0 396.7 L111.5 396.0 L111.5 395.0 L113.0 394.0 L117.8 396.0 L118.3 397.0 L117.4 400.0 L117.4 402.0 L119.0 402.8 L125.0 403.0 L130.0 402.2 L133.2 401.0 L134.1 400.0 L134.0 399.0 L132.1 395.0 L138.0 391.3 L142.0 388.2 L148.0 381.0 L152.3 372.0 L153.3 368.0 L154.1 362.0 L153.2 354.0 L150.3 347.0 L147.0 342.8 L141.0 338.8 L138.0 337.7 L135.0 337.3 L127.0 337.7 L120.0 340.4 L115.0 343.5 L114.5 343.0 L116.1 341.0 L120.0 338.2 L128.0 334.8Z" fill="#e63352"/><path d="M101.0 366.3 L102.0 366.3 L102.2 367.0 L101.9 373.0 L102.4 378.0 L103.5 382.0 L106.7 388.0 L106.9 389.0 L106.0 389.5 L104.3 388.0 L102.4 384.0 L100.5 378.0 L100.4 368.0 L101.0 366.3Z" fill="#e63352"/><path d="M208.0 262.9 L212.0 262.5 L217.0 263.9 L221.0 265.9 L225.4 269.0 L228.4 272.0 L231.1 276.0 L233.2 281.0 L234.3 286.0 L234.0 287.6 L233.0 287.3 L227.0 282.6 L223.0 280.5 L220.0 280.0 L217.0 280.7 L214.6 283.0 L209.4 294.0 L205.3 301.0 L196.5 312.0 L191.0 317.4 L179.0 327.4 L164.0 338.1 L159.0 341.3 L157.0 342.0 L156.5 341.0 L168.0 329.4 L177.4 319.0 L183.1 312.0 L190.3 302.0 L194.5 295.0 L199.4 285.0 L202.3 276.0 L203.7 267.0 L205.0 264.7 L208.0 262.9ZM210.0 267.7 L209.0 268.2 L208.6 269.0 L207.4 276.0 L206.2 280.0 L201.2 292.0 L193.3 305.0 L186.0 314.6 L185.8 316.0 L187.0 315.5 L191.0 311.7 L197.0 304.8 L201.2 299.0 L205.1 292.0 L209.6 282.0 L211.5 279.0 L214.0 276.6 L216.0 275.6 L219.0 274.9 L222.0 275.1 L223.0 274.4 L222.0 272.8 L218.0 269.9 L213.0 267.9 L210.0 267.7Z" fill="#f4ec30"/><path d="M175.0 333.8 L177.0 333.3 L181.0 333.7 L185.0 335.6 L187.0 337.3 L189.5 340.0 L191.4 343.0 L193.3 348.0 L194.4 354.0 L194.4 358.0 L193.4 364.0 L191.5 369.0 L189.1 373.0 L189.1 374.0 L190.3 376.0 L190.3 379.0 L189.0 380.4 L186.0 381.6 L183.0 381.8 L181.0 382.8 L177.0 383.0 L174.0 381.8 L170.2 378.0 L168.1 374.0 L169.0 373.0 L171.6 375.0 L173.0 377.4 L175.0 378.2 L179.0 378.2 L183.7 377.0 L183.7 376.0 L182.1 374.0 L182.4 373.0 L185.0 369.7 L187.0 366.0 L188.1 363.0 L189.0 358.4 L189.1 353.0 L188.1 348.0 L186.0 343.0 L182.9 339.0 L179.0 336.7 L177.0 336.6 L175.5 337.0 L169.0 341.4 L168.0 341.7 L167.4 341.0 L170.0 337.9 L175.0 333.8Z" fill="#e63352"/><path d="M230.0 260.9 L231.3 262.0 L240.6 274.0 L244.4 278.0 L251.0 283.4 L259.0 288.5 L272.0 294.7 L282.0 297.7 L292.0 299.7 L301.0 300.4 L311.0 302.2 L315.0 302.4 L318.0 303.6 L326.0 308.2 L330.0 312.6 L332.2 317.0 L332.0 321.3 L331.0 322.4 L330.0 322.0 L328.5 319.0 L327.3 318.0 L322.0 315.4 L318.0 314.4 L308.0 312.8 L286.0 311.6 L278.0 310.2 L271.0 308.2 L265.0 305.8 L258.0 302.3 L251.0 297.3 L246.3 293.0 L240.7 287.0 L237.9 283.0 L234.9 278.0 L230.8 269.0 L228.8 263.0 L229.0 261.4 L230.0 260.9ZM245.0 282.8 L244.4 283.0 L244.8 284.0 L247.0 286.9 L255.0 294.2 L263.0 299.4 L272.0 303.4 L278.0 305.3 L289.0 307.4 L305.0 308.6 L312.0 309.6 L321.0 311.8 L326.0 313.7 L327.0 313.5 L326.7 312.0 L322.9 309.0 L319.0 306.8 L313.0 304.7 L303.0 302.4 L290.0 301.4 L284.0 300.2 L277.0 298.4 L268.0 295.2 L259.0 291.2 L245.0 282.8Z" fill="#8cc643"/><path d="M278.0 175.9 L283.0 175.3 L296.0 175.6 L305.0 177.6 L309.0 179.4 L310.4 182.0 L310.8 190.0 L312.7 200.0 L314.9 207.0 L318.3 214.0 L318.0 215.0 L317.0 215.4 L316.0 215.1 L309.0 210.7 L301.0 206.8 L295.0 204.6 L288.0 202.8 L279.0 202.0 L271.0 202.8 L267.0 203.7 L261.0 205.6 L253.0 209.7 L247.0 213.8 L242.0 218.0 L237.0 222.9 L232.7 228.0 L228.9 233.0 L224.0 240.8 L223.0 241.4 L222.6 239.0 L223.5 232.0 L225.6 224.0 L227.6 219.0 L233.5 208.0 L241.6 197.0 L249.0 189.6 L259.0 182.5 L267.0 178.8 L274.0 176.6 L278.0 175.9ZM281.0 178.9 L273.0 180.7 L265.0 183.9 L258.1 188.0 L254.1 191.0 L246.9 198.0 L242.0 204.0 L235.7 214.0 L234.8 216.0 L235.0 217.0 L247.0 207.6 L254.0 203.5 L263.0 199.7 L274.0 197.5 L283.0 197.5 L290.0 198.7 L300.0 201.9 L310.0 206.7 L311.0 206.1 L308.6 194.0 L308.1 182.0 L307.6 181.0 L304.0 179.8 L297.0 178.6 L290.0 178.1 L281.0 178.9Z" fill="#22aae2"/><path d="M378.0 76.8 L386.0 76.1 L399.0 76.5 L404.0 77.5 L409.0 79.5 L415.0 83.5 L417.0 86.1 L419.1 90.0 L421.5 98.0 L421.5 103.0 L419.2 110.0 L417.5 113.0 L414.0 117.2 L409.0 121.3 L404.0 124.3 L401.0 124.5 L393.0 120.9 L386.0 118.9 L372.0 118.8 L366.0 120.8 L360.0 123.9 L355.0 127.6 L351.0 131.5 L345.5 138.0 L340.5 146.0 L335.4 156.0 L331.3 166.0 L327.3 178.0 L323.0 194.9 L320.7 208.0 L320.0 208.6 L318.4 206.0 L315.4 192.0 L315.1 188.0 L314.2 185.0 L314.1 181.0 L313.3 178.0 L313.1 168.0 L312.3 165.0 L312.4 160.0 L313.1 158.0 L313.4 148.0 L315.4 137.0 L318.4 127.0 L324.1 115.0 L327.1 110.0 L333.8 101.0 L339.0 95.8 L348.0 88.7 L357.0 83.5 L361.0 81.6 L370.0 78.4 L378.0 76.8ZM380.0 81.0 L372.0 82.8 L363.0 86.0 L355.0 89.9 L350.0 93.0 L345.0 96.8 L339.0 102.2 L333.9 108.0 L328.6 116.0 L322.6 129.0 L320.5 136.0 L318.3 146.0 L317.3 155.0 L317.3 171.0 L318.3 182.0 L320.0 187.5 L327.0 166.0 L332.9 152.0 L336.7 145.0 L341.7 137.0 L346.4 131.0 L353.0 124.6 L357.0 121.6 L362.0 118.6 L367.0 116.7 L373.0 115.3 L383.0 115.4 L388.0 116.4 L394.0 118.5 L401.2 122.0 L403.0 122.2 L406.6 120.0 L411.0 116.4 L414.0 113.0 L416.0 109.9 L418.1 104.0 L418.1 98.0 L415.2 90.0 L413.0 87.1 L410.7 85.0 L407.0 82.9 L399.0 80.7 L387.0 80.2 L380.0 81.0Z" fill="#e7449b"/><path d="M367.0 129.8 L368.0 130.2 L369.6 132.0 L376.3 141.0 L384.3 153.0 L392.5 167.0 L399.5 183.0 L402.5 192.0 L403.6 197.0 L403.9 206.0 L403.6 212.0 L400.6 219.0 L397.0 223.0 L394.0 225.3 L387.0 228.3 L382.0 229.5 L374.0 229.8 L367.0 229.5 L361.0 227.3 L358.0 225.3 L354.7 222.0 L350.5 214.0 L349.5 210.0 L349.1 204.0 L348.4 201.0 L348.4 197.0 L349.1 194.0 L349.4 186.0 L351.4 175.0 L354.5 163.0 L358.5 150.0 L363.5 137.0 L367.0 129.8ZM368.0 140.4 L361.8 156.0 L357.8 168.0 L354.9 179.0 L352.9 189.0 L351.9 197.0 L352.0 207.0 L352.8 212.0 L354.6 217.0 L357.0 221.0 L360.1 224.0 L364.0 226.2 L368.0 227.4 L375.0 227.9 L381.0 227.4 L386.0 226.3 L391.0 224.3 L395.8 221.0 L397.5 219.0 L400.2 214.0 L401.1 210.0 L401.0 202.0 L400.1 197.0 L397.3 188.0 L391.0 174.2 L384.0 162.0 L377.0 151.2 L370.0 141.3 L369.0 140.3 L368.0 140.4Z" fill="#0d9647"/><path d="M401.0 126.8 L405.0 126.3 L406.0 126.3 L406.8 127.0 L404.9 131.0 L405.0 132.7 L406.0 133.5 L427.0 135.8 L433.0 137.3 L436.5 139.0 L438.8 142.0 L439.2 146.0 L438.1 150.0 L435.3 155.0 L432.0 158.3 L426.0 161.2 L421.0 162.2 L410.0 161.8 L406.0 162.4 L400.0 164.5 L395.0 167.1 L393.0 167.1 L394.7 164.0 L396.6 162.0 L399.0 159.7 L403.0 157.1 L411.0 154.4 L421.0 154.1 L424.0 152.6 L426.1 150.0 L425.7 148.0 L422.0 145.5 L413.0 142.9 L401.0 140.6 L397.0 139.3 L394.7 138.0 L392.8 135.0 L393.0 132.0 L396.0 128.7 L401.0 126.8ZM401.0 130.0 L399.0 130.7 L397.3 132.0 L396.6 133.0 L396.6 134.0 L398.0 135.3 L402.0 136.2 L402.6 136.0 L402.6 135.0 L401.6 133.0 L401.8 131.0 L401.0 130.0ZM428.0 140.9 L427.3 141.0 L427.0 142.0 L430.3 145.0 L431.4 147.0 L432.0 150.9 L433.0 150.8 L434.4 147.0 L434.4 144.0 L434.0 143.0 L432.0 141.8 L428.0 140.9Z" fill="#fcb044"/><path d="M386.0 235.1 L387.0 235.5 L387.6 237.0 L387.4 246.0 L385.4 262.0 L382.2 275.0 L378.4 285.0 L375.2 291.0 L370.0 297.8 L363.0 304.2 L357.0 307.4 L351.0 309.4 L343.0 309.9 L334.0 309.4 L324.0 306.4 L315.0 301.8 L306.0 295.4 L299.5 290.0 L299.3 289.0 L300.0 288.4 L301.0 288.5 L309.0 291.2 L318.0 293.1 L332.0 293.2 L338.0 292.1 L344.0 290.3 L354.0 285.2 L358.0 282.3 L363.5 277.0 L370.1 269.0 L374.4 262.0 L379.4 252.0 L384.8 237.0 L386.0 235.1ZM384.0 248.9 L382.9 250.0 L382.7 252.0 L381.9 253.0 L381.4 255.0 L377.2 264.0 L372.5 272.0 L366.3 280.0 L358.0 287.6 L351.0 292.1 L341.0 296.2 L336.0 297.4 L329.0 298.4 L321.0 298.5 L320.0 297.8 L319.0 298.0 L319.0 299.0 L331.0 303.3 L336.0 304.4 L343.0 305.1 L351.0 304.3 L357.0 302.2 L362.0 299.2 L367.0 294.7 L370.0 291.0 L373.2 286.0 L376.2 280.0 L379.3 272.0 L381.4 264.0 L383.4 253.0 L384.3 251.0 L384.0 248.9Z" fill="#f16726"/><path d="M343.0 319.9 L346.0 319.4 L351.0 319.9 L357.0 321.9 L362.0 324.9 L368.4 331.0 L373.1 338.0 L375.2 342.0 L378.4 351.0 L379.3 355.0 L380.5 365.0 L380.2 371.0 L379.2 378.0 L377.1 385.0 L374.9 390.0 L375.4 391.0 L380.3 394.0 L381.6 396.0 L381.8 399.0 L380.0 401.1 L378.0 402.3 L372.0 403.8 L371.0 404.6 L369.0 404.8 L367.0 405.9 L364.0 405.7 L361.0 406.6 L358.0 406.5 L352.0 404.9 L346.0 404.6 L342.0 403.2 L337.1 400.0 L333.0 396.5 L331.5 394.0 L331.3 390.0 L332.0 388.6 L333.0 388.7 L337.1 393.0 L342.0 396.4 L346.0 398.3 L350.0 399.1 L354.0 399.2 L358.0 400.5 L363.0 400.4 L368.0 399.4 L373.8 397.0 L373.0 395.8 L367.3 393.0 L367.3 392.0 L371.2 386.0 L373.4 381.0 L375.3 374.0 L376.1 368.0 L376.2 361.0 L375.4 354.0 L374.2 349.0 L372.1 343.0 L369.1 337.0 L364.7 331.0 L359.0 325.8 L353.0 322.6 L348.0 321.8 L341.0 322.3 L336.0 324.5 L333.0 327.2 L332.0 327.2 L332.0 326.0 L332.9 325.0 L335.0 324.0 L337.0 322.3 L343.0 319.9Z" fill="#e63352"/><path d="M325.0 336.5 L325.7 337.0 L323.3 346.0 L322.2 354.0 L322.3 359.0 L323.3 367.0 L326.2 377.0 L325.0 384.2 L324.2 381.0 L322.3 377.0 L320.4 369.0 L319.3 359.0 L319.4 354.0 L320.2 352.0 L320.2 349.0 L321.4 344.0 L323.3 339.0 L325.0 336.5Z" fill="#e63352"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
+  <symbol id="i-arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-paw" viewBox="0 0 24 24"><ellipse cx="12" cy="16" rx="4.5" ry="3.8"/><circle cx="6" cy="10.5" r="1.8"/><circle cx="9.5" cy="6.5" r="1.8"/><circle cx="14.5" cy="6.5" r="1.8"/><circle cx="18" cy="10.5" r="1.8"/></symbol>
+  <symbol id="i-sms" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+  <symbol id="star" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></symbol>
+</svg>
 
-<header id="site-header">
-  <div class="wrap nav-inner">
-    <a href="#" class="logo">Grooming<span>line</span></a>
-    <nav class="desktop-nav">
-      <ul class="nav-links">
-        <li><a href="#usluge">Usluge</a></li>
-        <li><a href="#cenovnik">Cenovnik</a></li>
-        <li><a href="#o-nama">O nama</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-      <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
-    </nav>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Otvori meni">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-    </button>
+<div class="topbar">
+  <div class="wrap">
+    <ul>
+      <li class="hide-s"><svg class="i"><use href="#i-pin"/></svg>Bulevar Zorana Đinđića 83, lokal 4-1, Novi Beograd</li>
+      <li class="status"><span class="dot"></span><span class="st-txt">Pon–Sub 09–17 h</span></li>
+    </ul>
+    <ul>
+      <li class="hide-s"><svg class="i"><use href="#i-mail"/></svg><a href="mailto:office@groomingline.rs">office@groomingline.rs</a></li>
+      <li><svg class="i"><use href="#i-phone"/></svg><a href="tel:+381631114161">063 111 41 61</a></li>
+      <li class="hide-s"><a href="tel:+381113133234">011 31 33 234</a></li>
+    </ul>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#usluge">Usluge</a>
-    <a href="#cenovnik">Cenovnik</a>
-    <a href="#o-nama">O nama</a>
-    <a href="#kontakt">Kontakt</a>
-    <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
+</div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Grooming Line, početak stranice">
+      <svg viewBox="95 71 350 343" aria-hidden="true"><use href="#logo"/></svg>
+      <span><b>Grooming Line</b><small>salon za negu pasa</small></span>
+    </a>
+    <nav class="nav" aria-label="Glavna navigacija">
+      <a href="#usluge">Usluge</a>
+      <a href="#cenovnik">Cenovnik</a>
+      <a href="#termin" class="opt-hide">Kako ide termin</a>
+      <a href="#galerija">Galerija</a>
+      <a href="#salon">Salon</a>
+      <a href="#utisci">Utisci</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <button class="btn has-arrow" data-book>Zakaži termin<span class="ar"><svg class="i"><use href="#i-arr"/></svg></span></button>
+    <button class="burger" id="burger" aria-label="Otvori meni" aria-expanded="false" aria-controls="mnav"><span></span></button>
   </div>
 </header>
+<nav class="mnav" id="mnav" aria-label="Mobilna navigacija">
+  <a href="#usluge">Usluge</a>
+  <a href="#cenovnik">Cenovnik</a>
+  <a href="#termin">Kako ide termin</a>
+  <a href="#galerija">Galerija</a>
+  <a href="#salon">Salon</a>
+  <a href="#utisci">Utisci</a>
+  <a href="#kontakt">Kontakt</a>
+  <button class="btn" data-book>Zakaži termin</button>
+</nav>
 
-<main>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <h1>Čist, uredan i opušten pas - posle svake posete.</h1>
-        <p class="hero-sub">Šišanje, kupanje i uređivanje u salonu Groomingline. Zakazuješ termin za par minuta, mi se pobrinemo za ostalo.</p>
-        <div class="hero-cta">
-          <a href="#kontakt" class="btn btn-primary">Zakaži termin za svog ljubimca</a>
-          <a href="#cenovnik" class="btn btn-outline">Pogledaj cenovnik</a>
-        </div>
-        <div class="hero-badges">
-          <div class="hero-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Radimo sa svim rasama
-          </div>
-          <div class="hero-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Oprema prilagođena psima
-          </div>
-          <div class="hero-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Termini i vikendom
-          </div>
-        </div>
-      </div>
-      <div class="hero-img-placeholder">
-        FOTOGRAFIJA SALONA - PAS NA GROOMING STOLU
-      </div>
-    </div>
-  </section>
-
-  <!-- BOL UVOD -->
-  <section class="pain">
-    <div class="wrap">
-      <div class="pain-box reveal">
-        <p>Kupanje kod kuće zna da bude borba - pas se otima, kupatilo je mokro, a šišanje bez prave opreme retko ispadne kako treba. Dovedeš ga kod nas i izađe nazad čist, uredan i miran, bez stresa za tebe i za njega.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- USLUGE -->
-  <section class="section" id="usluge">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Usluge</span>
-        <h2>Sve što tvom psu treba, pod jednim krovom</h2>
-        <p>Od redovnog kupanja do potpunog uređivanja pre neke prilike - radimo onoliko koliko je psu zaista potrebno, ne više.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
-          </div>
-          <h3>Šišanje i trimovanje</h3>
-          <p>Dužina i stil prilagođeni rasi, tipu dlake i godišnjem dobu. Radimo i higijensko šišanje za pse kojima treba samo osveženje.</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 4 7 8.5 7 13a7 7 0 0 1-14 0c0-4.5 4-9 7-13z"/></svg>
-          </div>
-          <h3>Kupanje i sušenje</h3>
-          <p>Šampon biramo prema tipu kože i dlake. Posle kupanja sledi pažljivo sušenje, bez žurbe i bez stresa za psa.</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>
-          </div>
-          <h3>Uređivanje</h3>
-          <p>Sečenje noktiju, čišćenje ušiju i oko očiju, četkanje i raspetljavanje dlake. Detalji koji se najčešće zapostave kod kuće.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CENOVNIK -->
-  <section class="section" id="cenovnik" style="background:var(--accent-softer);">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Cenovnik</span>
-        <h2>Cena zavisi od veličine psa i stanja dlake</h2>
-        <p>Orijentacione cene po kategoriji. Tačnu cenu potvrđujemo na recepciji, pre nego što počnemo.</p>
-      </div>
-      <div class="pricing-grid">
-        <div class="price-card reveal">
-          <span class="price-tag">Mali pas, do 10 kg</span>
-          <h3>Jorkšir, čivava, maltezer...</h3>
-          <ul class="price-list">
-            <li>Kupanje i sušenje <span class="price">od 1.800 din</span></li>
-            <li>Šišanje i uređivanje <span class="price">od 2.500 din</span></li>
-            <li>Sečenje noktiju <span class="price">500 din</span></li>
-            <li>Čišćenje ušiju i očiju <span class="price">400 din</span></li>
-          </ul>
-          <a href="#kontakt" class="btn btn-outline">Zakaži termin</a>
-        </div>
-        <div class="price-card featured reveal">
-          <span class="price-tag">Srednji pas, 10-25 kg</span>
-          <h3>Kokeri, buldog, korgi...</h3>
-          <ul class="price-list">
-            <li>Kupanje i sušenje <span class="price">od 2.200 din</span></li>
-            <li>Šišanje i uređivanje <span class="price">od 3.200 din</span></li>
-            <li>Sečenje noktiju <span class="price">500 din</span></li>
-            <li>Čišćenje ušiju i očiju <span class="price">400 din</span></li>
-          </ul>
-          <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
-        </div>
-        <div class="price-card reveal">
-          <span class="price-tag">Veliki pas, 25 kg+</span>
-          <h3>Labrador, ovčar, haski...</h3>
-          <ul class="price-list">
-            <li>Kupanje i sušenje <span class="price">od 2.800 din</span></li>
-            <li>Šišanje i uređivanje <span class="price">od 4.000 din</span></li>
-            <li>Sečenje noktiju <span class="price">600 din</span></li>
-            <li>Čišćenje ušiju i očiju <span class="price">450 din</span></li>
-          </ul>
-          <a href="#kontakt" class="btn btn-outline">Zakaži termin</a>
-        </div>
-      </div>
-      <p class="price-note reveal">Cene su okvirne. Konačna cena zavisi od rase, dužine i stanja dlake, i dogovaramo je pre početka usluge, bez iznenađenja na kraju.</p>
-    </div>
-  </section>
-
-  <!-- O BRENDU -->
-  <section class="section" id="o-nama">
-    <div class="wrap about-grid">
-      <div class="about-img-placeholder reveal">
-        FOTOGRAFIJA SALONA I PROSTORA ZA GROOMING
-      </div>
-      <div class="reveal">
-        <span class="eyebrow">O nama</span>
-        <h2>Posao koji radimo svaki dan, ne povremeno</h2>
-        <p style="margin-top:16px; font-size:17px;">Groomingline je salon posvećen isključivo negi pasa. Ne nudimo desetine nepovezanih usluga - radimo šišanje, kupanje i uređivanje, i to radimo pažljivo.</p>
-        <div class="about-points">
-          <div class="about-point">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11.8A8 8 0 0 0 4 10.2C4 17.5 12 22 12 22z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div class="about-point-text">
-              <h4>Prilagođeno psu, ne šablonu</h4>
-              <p>Gledamo rasu, godine i temperament pre nego što uzmemo makaze u ruke.</p>
-            </div>
-          </div>
-          <div class="about-point">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg>
-            <div class="about-point-text">
-              <h4>Mirna atmosfera</h4>
-              <p>Bez žurbe i bez buke koja plaši - radimo tempom koji psu odgovara.</p>
-            </div>
-          </div>
-          <div class="about-point">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-            <div class="about-point-text">
-              <h4>Termin kad tebi odgovara</h4>
-              <p>Radimo radnim danima i vikendom, po dogovoru telefonom ili porukom.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KONTAKT -->
-  <section class="section" id="kontakt" style="background:var(--accent-softer);">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Kontakt i zakazivanje</span>
-        <h2>Zakaži termin za svog ljubimca</h2>
-        <p>Pošalji upit ili pozovi direktno. Javljamo se isti dan i dogovaramo termin koji ti odgovara.</p>
-      </div>
-      <div class="contact-wrap">
-        <div class="reveal">
-          <div class="contact-info-list">
-            <div class="contact-info-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.97.35 1.92.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.33 1.84.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
-              <div>
-                <h4>Telefon</h4>
-                <p>060 123 4567</p>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
-              <div>
-                <h4>Email</h4>
-                <p>info@groomingline.rs</p>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <div>
-                <h4>Adresa salona</h4>
-                <p>Bulevar oslobođenja 45, Novi Sad</p>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-              <div>
-                <h4>Radno vreme</h4>
-                <p>Ponedeljak - subota, 09:00 - 20:00</p>
-              </div>
-            </div>
-          </div>
-          <div class="map-placeholder">
-            MAPA LOKACIJE SALONA GROOMINGLINE
-          </div>
-        </div>
-
-        <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Hvala, javićemo se uskoro da potvrdimo termin.');">
-          <h3>Pošalji zahtev za termin</h3>
-          <p class="sub">Popuni osnovne podatke, ostalo dogovaramo telefonom.</p>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="ime">Ime i prezime</label>
-              <input type="text" id="ime" name="ime" placeholder="Tvoje ime" required>
-            </div>
-            <div class="form-field">
-              <label for="telefon">Telefon</label>
-              <input type="tel" id="telefon" name="telefon" placeholder="06x xxx xxxx" required>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="ljubimac">Rasa i veličina psa</label>
-            <input type="text" id="ljubimac" name="ljubimac" placeholder="Npr. labrador, srednja veličina">
-          </div>
-          <div class="form-field">
-            <label for="usluga">Željena usluga</label>
-            <select id="usluga" name="usluga">
-              <option>Šišanje i trimovanje</option>
-              <option>Kupanje i sušenje</option>
-              <option>Uređivanje (nokti, uši, oči)</option>
-              <option>Nisam siguran/na, treba mi savet</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="poruka">Poruka (opciono)</label>
-            <textarea id="poruka" name="poruka" placeholder="Napiši nam kad ti termin odgovara ili nešto bitno o ljubimcu"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Pošalji zahtev za termin</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA ZATVARANJE -->
-  <section class="section cta-close">
-    <div class="wrap">
-      <div class="cta-box reveal">
-        <h2>Zakaži termin i vidi razliku posle prve posete</h2>
-        <p>Dovedi psa kod nas, mi se pobrinemo za šišanje, kupanje i uređivanje. Ti ga vodiš kući čistog i urednog.</p>
-        <a href="#kontakt" class="btn btn-primary">Zakaži termin za svog ljubimca</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
+<main id="top">
+<!-- HERO -->
+<section class="hero">
   <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">Grooming<span>line</span></div>
-        <p class="footer-tagline">Salon za negu i grooming pasa - šišanje, kupanje i uređivanje na jednom mestu.</p>
+    <div class="hero-copy">
+      <span class="pill status"><span class="dot"></span><span>Salon za negu pasa<span class="hide-s"> · Novi Beograd</span>, kod Arene</span></span>
+      <h1 class="h1"><span>Ulazi čupav,</span><span>izlazi kao <em>gospodin.</em></span></h1>
+      <p class="lead"><span class="s">Savremen salon za negu pasa na Novom Beogradu.</span><span class="s">Sertifikovani grumer, vrhunska kozmetika i puno strpljenja.</span></p>
+      <div class="cta-row">
+        <button class="btn has-arrow" data-book>Zakaži termin<span class="ar"><svg class="i"><use href="#i-arr"/></svg></span></button>
+        <a class="btn-2" href="#cenovnik">Izračunaj cenu</a>
       </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h5>Stranica</h5>
-          <a href="#usluge">Usluge</a>
-          <a href="#cenovnik">Cenovnik</a>
-          <a href="#o-nama">O nama</a>
-          <a href="#kontakt">Kontakt</a>
-        </div>
-        <div class="footer-col">
-          <h5>Kontakt</h5>
-          <a href="tel:0601234567">060 123 4567</a>
-          <a href="mailto:info@groomingline.rs">info@groomingline.rs</a>
-          <a href="#kontakt">Bulevar oslobođenja 45, Novi Sad</a>
-        </div>
-      </div>
+      <ul class="trust">
+        <li><span class="ic"><svg class="i"><use href="#i-heart"/></svg></span>Bez vezivanja<br>i kažnjavanja</li>
+        <li><span class="ic"><svg class="i"><use href="#i-award"/></svg></span>Sertifikovani<br>grumer</li>
+        <li><span class="ic"><svg class="i"><use href="#i-drop"/></svg></span>Profesionalni<br>preparati</li>
+      </ul>
     </div>
-    <div class="footer-bottom">
-      © 2026 Groomingline. Sva prava zadržana.
+    <div class="stage" aria-label="Toy pudla posle šišanja u salonu Grooming Line">
+      <div class="arch">
+        <div class="grid-paper"></div>
+        <img class="photo" src="assets/pudla-braon.webp" width="1200" height="1495" alt="Braon toy pudla posle šišanja, sedi na prostirci u salonu">
+        <svg class="draw" viewBox="95 71 350 343" aria-hidden="true"><path style="--i:0" d="M155.0 169.8 L159.0 169.1 L166.0 169.4 L169.0 170.5 L175.0 174.4 L178.6 178.0 L183.4 186.0 L185.5 192.0 L186.5 198.0 L186.5 204.0 L185.5 210.0 L183.5 215.0 L180.6 220.0 L176.9 224.0 L172.0 227.5 L164.0 229.5 L158.0 228.4 L154.0 226.3 L150.8 224.0 L145.9 219.0 L145.3 217.0 L143.5 215.0 L141.6 211.0 L142.0 209.3 L145.4 216.0 L152.0 222.2 L155.2 224.0 L159.0 225.3 L167.0 225.0 L169.6 224.0 L173.0 221.7 L176.0 218.4 L178.1 215.0 L180.1 210.0 L181.1 205.0 L181.0 197.5 L180.2 193.0 L179.0 189.2 L177.1 185.0 L174.0 180.4 L170.6 177.0 L167.6 175.0 L165.0 173.8 L161.0 172.8 L158.0 172.7 L154.0 173.6 L150.0 175.7 L148.0 177.3 L143.3 183.0 L141.3 188.0 L140.9 191.0 L140.0 193.0 L139.3 191.0 L139.5 189.0 L140.4 188.0 L140.4 186.0 L145.2 177.0 L148.0 173.9 L152.0 171.1 L155.0 169.8ZM140.0 201.9 L140.9 204.0 L141.0 205.8 L140.0 205.8 L139.5 205.0 L139.4 203.0 L140.0 201.9Z" fill="#dc1d8e" stroke="#dc1d8e" pathLength="1"/><path style="--i:1" d="M199.0 217.9 L203.0 217.3 L215.0 217.8 L221.0 219.0 L222.4 220.0 L222.0 221.0 L215.0 221.9 L210.9 223.0 L205.0 225.6 L197.0 231.6 L193.8 235.0 L189.5 241.0 L185.6 248.0 L182.0 257.2 L179.4 265.0 L175.2 283.0 L170.8 296.0 L166.3 306.0 L159.3 317.0 L150.0 326.3 L144.0 330.0 L136.0 332.7 L127.0 333.0 L126.5 332.0 L127.0 331.4 L137.4 327.0 L144.0 322.2 L147.5 318.0 L151.5 311.0 L153.5 306.0 L155.2 298.0 L156.2 287.0 L156.4 276.0 L158.8 261.0 L162.8 248.0 L168.7 237.0 L174.6 230.0 L181.0 224.7 L191.0 219.8 L199.0 217.9ZM207.0 220.0 L196.0 221.6 L190.0 223.7 L185.6 226.0 L181.2 229.0 L176.9 233.0 L172.8 238.0 L169.8 243.0 L165.9 252.0 L162.6 265.0 L160.9 281.0 L160.5 297.0 L158.2 308.0 L159.0 308.5 L163.4 301.0 L168.1 290.0 L172.3 277.0 L176.6 260.0 L179.6 252.0 L183.6 244.0 L186.6 239.0 L192.0 232.3 L198.0 226.9 L203.0 223.6 L208.0 221.2 L208.2 220.0 L207.0 220.0Z" fill="#803f98" stroke="#803f98" pathLength="1"/><path style="--i:2" d="M128.0 334.8 L135.0 334.0 L140.0 335.0 L145.0 336.9 L151.0 341.4 L154.5 346.0 L157.2 352.0 L158.5 357.0 L158.6 366.0 L157.4 373.0 L154.1 381.0 L150.4 387.0 L147.2 391.0 L139.5 397.0 L139.9 399.0 L139.1 402.0 L133.0 406.7 L130.0 406.7 L127.0 407.9 L125.0 408.0 L119.0 407.1 L115.0 405.7 L113.6 404.0 L113.4 403.0 L113.3 400.0 L114.1 399.0 L114.0 398.0 L112.0 396.7 L111.5 396.0 L111.5 395.0 L113.0 394.0 L117.8 396.0 L118.3 397.0 L117.4 400.0 L117.4 402.0 L119.0 402.8 L125.0 403.0 L130.0 402.2 L133.2 401.0 L134.1 400.0 L134.0 399.0 L132.1 395.0 L138.0 391.3 L142.0 388.2 L148.0 381.0 L152.3 372.0 L153.3 368.0 L154.1 362.0 L153.2 354.0 L150.3 347.0 L147.0 342.8 L141.0 338.8 L138.0 337.7 L135.0 337.3 L127.0 337.7 L120.0 340.4 L115.0 343.5 L114.5 343.0 L116.1 341.0 L120.0 338.2 L128.0 334.8Z" fill="#e63352" stroke="#e63352" pathLength="1"/><path style="--i:3" d="M101.0 366.3 L102.0 366.3 L102.2 367.0 L101.9 373.0 L102.4 378.0 L103.5 382.0 L106.7 388.0 L106.9 389.0 L106.0 389.5 L104.3 388.0 L102.4 384.0 L100.5 378.0 L100.4 368.0 L101.0 366.3Z" fill="#e63352" stroke="#e63352" pathLength="1"/><path style="--i:4" d="M208.0 262.9 L212.0 262.5 L217.0 263.9 L221.0 265.9 L225.4 269.0 L228.4 272.0 L231.1 276.0 L233.2 281.0 L234.3 286.0 L234.0 287.6 L233.0 287.3 L227.0 282.6 L223.0 280.5 L220.0 280.0 L217.0 280.7 L214.6 283.0 L209.4 294.0 L205.3 301.0 L196.5 312.0 L191.0 317.4 L179.0 327.4 L164.0 338.1 L159.0 341.3 L157.0 342.0 L156.5 341.0 L168.0 329.4 L177.4 319.0 L183.1 312.0 L190.3 302.0 L194.5 295.0 L199.4 285.0 L202.3 276.0 L203.7 267.0 L205.0 264.7 L208.0 262.9ZM210.0 267.7 L209.0 268.2 L208.6 269.0 L207.4 276.0 L206.2 280.0 L201.2 292.0 L193.3 305.0 L186.0 314.6 L185.8 316.0 L187.0 315.5 L191.0 311.7 L197.0 304.8 L201.2 299.0 L205.1 292.0 L209.6 282.0 L211.5 279.0 L214.0 276.6 L216.0 275.6 L219.0 274.9 L222.0 275.1 L223.0 274.4 L222.0 272.8 L218.0 269.9 L213.0 267.9 L210.0 267.7Z" fill="#f4ec30" stroke="#f4ec30" pathLength="1"/><path style="--i:5" d="M175.0 333.8 L177.0 333.3 L181.0 333.7 L185.0 335.6 L187.0 337.3 L189.5 340.0 L191.4 343.0 L193.3 348.0 L194.4 354.0 L194.4 358.0 L193.4 364.0 L191.5 369.0 L189.1 373.0 L189.1 374.0 L190.3 376.0 L190.3 379.0 L189.0 380.4 L186.0 381.6 L183.0 381.8 L181.0 382.8 L177.0 383.0 L174.0 381.8 L170.2 378.0 L168.1 374.0 L169.0 373.0 L171.6 375.0 L173.0 377.4 L175.0 378.2 L179.0 378.2 L183.7 377.0 L183.7 376.0 L182.1 374.0 L182.4 373.0 L185.0 369.7 L187.0 366.0 L188.1 363.0 L189.0 358.4 L189.1 353.0 L188.1 348.0 L186.0 343.0 L182.9 339.0 L179.0 336.7 L177.0 336.6 L175.5 337.0 L169.0 341.4 L168.0 341.7 L167.4 341.0 L170.0 337.9 L175.0 333.8Z" fill="#e63352" stroke="#e63352" pathLength="1"/><path style="--i:6" d="M230.0 260.9 L231.3 262.0 L240.6 274.0 L244.4 278.0 L251.0 283.4 L259.0 288.5 L272.0 294.7 L282.0 297.7 L292.0 299.7 L301.0 300.4 L311.0 302.2 L315.0 302.4 L318.0 303.6 L326.0 308.2 L330.0 312.6 L332.2 317.0 L332.0 321.3 L331.0 322.4 L330.0 322.0 L328.5 319.0 L327.3 318.0 L322.0 315.4 L318.0 314.4 L308.0 312.8 L286.0 311.6 L278.0 310.2 L271.0 308.2 L265.0 305.8 L258.0 302.3 L251.0 297.3 L246.3 293.0 L240.7 287.0 L237.9 283.0 L234.9 278.0 L230.8 269.0 L228.8 263.0 L229.0 261.4 L230.0 260.9ZM245.0 282.8 L244.4 283.0 L244.8 284.0 L247.0 286.9 L255.0 294.2 L263.0 299.4 L272.0 303.4 L278.0 305.3 L289.0 307.4 L305.0 308.6 L312.0 309.6 L321.0 311.8 L326.0 313.7 L327.0 313.5 L326.7 312.0 L322.9 309.0 L319.0 306.8 L313.0 304.7 L303.0 302.4 L290.0 301.4 L284.0 300.2 L277.0 298.4 L268.0 295.2 L259.0 291.2 L245.0 282.8Z" fill="#8cc643" stroke="#8cc643" pathLength="1"/><path style="--i:7" d="M278.0 175.9 L283.0 175.3 L296.0 175.6 L305.0 177.6 L309.0 179.4 L310.4 182.0 L310.8 190.0 L312.7 200.0 L314.9 207.0 L318.3 214.0 L318.0 215.0 L317.0 215.4 L316.0 215.1 L309.0 210.7 L301.0 206.8 L295.0 204.6 L288.0 202.8 L279.0 202.0 L271.0 202.8 L267.0 203.7 L261.0 205.6 L253.0 209.7 L247.0 213.8 L242.0 218.0 L237.0 222.9 L232.7 228.0 L228.9 233.0 L224.0 240.8 L223.0 241.4 L222.6 239.0 L223.5 232.0 L225.6 224.0 L227.6 219.0 L233.5 208.0 L241.6 197.0 L249.0 189.6 L259.0 182.5 L267.0 178.8 L274.0 176.6 L278.0 175.9ZM281.0 178.9 L273.0 180.7 L265.0 183.9 L258.1 188.0 L254.1 191.0 L246.9 198.0 L242.0 204.0 L235.7 214.0 L234.8 216.0 L235.0 217.0 L247.0 207.6 L254.0 203.5 L263.0 199.7 L274.0 197.5 L283.0 197.5 L290.0 198.7 L300.0 201.9 L310.0 206.7 L311.0 206.1 L308.6 194.0 L308.1 182.0 L307.6 181.0 L304.0 179.8 L297.0 178.6 L290.0 178.1 L281.0 178.9Z" fill="#22aae2" stroke="#22aae2" pathLength="1"/><path style="--i:8" d="M378.0 76.8 L386.0 76.1 L399.0 76.5 L404.0 77.5 L409.0 79.5 L415.0 83.5 L417.0 86.1 L419.1 90.0 L421.5 98.0 L421.5 103.0 L419.2 110.0 L417.5 113.0 L414.0 117.2 L409.0 121.3 L404.0 124.3 L401.0 124.5 L393.0 120.9 L386.0 118.9 L372.0 118.8 L366.0 120.8 L360.0 123.9 L355.0 127.6 L351.0 131.5 L345.5 138.0 L340.5 146.0 L335.4 156.0 L331.3 166.0 L327.3 178.0 L323.0 194.9 L320.7 208.0 L320.0 208.6 L318.4 206.0 L315.4 192.0 L315.1 188.0 L314.2 185.0 L314.1 181.0 L313.3 178.0 L313.1 168.0 L312.3 165.0 L312.4 160.0 L313.1 158.0 L313.4 148.0 L315.4 137.0 L318.4 127.0 L324.1 115.0 L327.1 110.0 L333.8 101.0 L339.0 95.8 L348.0 88.7 L357.0 83.5 L361.0 81.6 L370.0 78.4 L378.0 76.8ZM380.0 81.0 L372.0 82.8 L363.0 86.0 L355.0 89.9 L350.0 93.0 L345.0 96.8 L339.0 102.2 L333.9 108.0 L328.6 116.0 L322.6 129.0 L320.5 136.0 L318.3 146.0 L317.3 155.0 L317.3 171.0 L318.3 182.0 L320.0 187.5 L327.0 166.0 L332.9 152.0 L336.7 145.0 L341.7 137.0 L346.4 131.0 L353.0 124.6 L357.0 121.6 L362.0 118.6 L367.0 116.7 L373.0 115.3 L383.0 115.4 L388.0 116.4 L394.0 118.5 L401.2 122.0 L403.0 122.2 L406.6 120.0 L411.0 116.4 L414.0 113.0 L416.0 109.9 L418.1 104.0 L418.1 98.0 L415.2 90.0 L413.0 87.1 L410.7 85.0 L407.0 82.9 L399.0 80.7 L387.0 80.2 L380.0 81.0Z" fill="#e7449b" stroke="#e7449b" pathLength="1"/><path style="--i:9" d="M367.0 129.8 L368.0 130.2 L369.6 132.0 L376.3 141.0 L384.3 153.0 L392.5 167.0 L399.5 183.0 L402.5 192.0 L403.6 197.0 L403.9 206.0 L403.6 212.0 L400.6 219.0 L397.0 223.0 L394.0 225.3 L387.0 228.3 L382.0 229.5 L374.0 229.8 L367.0 229.5 L361.0 227.3 L358.0 225.3 L354.7 222.0 L350.5 214.0 L349.5 210.0 L349.1 204.0 L348.4 201.0 L348.4 197.0 L349.1 194.0 L349.4 186.0 L351.4 175.0 L354.5 163.0 L358.5 150.0 L363.5 137.0 L367.0 129.8ZM368.0 140.4 L361.8 156.0 L357.8 168.0 L354.9 179.0 L352.9 189.0 L351.9 197.0 L352.0 207.0 L352.8 212.0 L354.6 217.0 L357.0 221.0 L360.1 224.0 L364.0 226.2 L368.0 227.4 L375.0 227.9 L381.0 227.4 L386.0 226.3 L391.0 224.3 L395.8 221.0 L397.5 219.0 L400.2 214.0 L401.1 210.0 L401.0 202.0 L400.1 197.0 L397.3 188.0 L391.0 174.2 L384.0 162.0 L377.0 151.2 L370.0 141.3 L369.0 140.3 L368.0 140.4Z" fill="#0d9647" stroke="#0d9647" pathLength="1"/><path style="--i:10" d="M401.0 126.8 L405.0 126.3 L406.0 126.3 L406.8 127.0 L404.9 131.0 L405.0 132.7 L406.0 133.5 L427.0 135.8 L433.0 137.3 L436.5 139.0 L438.8 142.0 L439.2 146.0 L438.1 150.0 L435.3 155.0 L432.0 158.3 L426.0 161.2 L421.0 162.2 L410.0 161.8 L406.0 162.4 L400.0 164.5 L395.0 167.1 L393.0 167.1 L394.7 164.0 L396.6 162.0 L399.0 159.7 L403.0 157.1 L411.0 154.4 L421.0 154.1 L424.0 152.6 L426.1 150.0 L425.7 148.0 L422.0 145.5 L413.0 142.9 L401.0 140.6 L397.0 139.3 L394.7 138.0 L392.8 135.0 L393.0 132.0 L396.0 128.7 L401.0 126.8ZM401.0 130.0 L399.0 130.7 L397.3 132.0 L396.6 133.0 L396.6 134.0 L398.0 135.3 L402.0 136.2 L402.6 136.0 L402.6 135.0 L401.6 133.0 L401.8 131.0 L401.0 130.0ZM428.0 140.9 L427.3 141.0 L427.0 142.0 L430.3 145.0 L431.4 147.0 L432.0 150.9 L433.0 150.8 L434.4 147.0 L434.4 144.0 L434.0 143.0 L432.0 141.8 L428.0 140.9Z" fill="#fcb044" stroke="#fcb044" pathLength="1"/><path style="--i:11" d="M386.0 235.1 L387.0 235.5 L387.6 237.0 L387.4 246.0 L385.4 262.0 L382.2 275.0 L378.4 285.0 L375.2 291.0 L370.0 297.8 L363.0 304.2 L357.0 307.4 L351.0 309.4 L343.0 309.9 L334.0 309.4 L324.0 306.4 L315.0 301.8 L306.0 295.4 L299.5 290.0 L299.3 289.0 L300.0 288.4 L301.0 288.5 L309.0 291.2 L318.0 293.1 L332.0 293.2 L338.0 292.1 L344.0 290.3 L354.0 285.2 L358.0 282.3 L363.5 277.0 L370.1 269.0 L374.4 262.0 L379.4 252.0 L384.8 237.0 L386.0 235.1ZM384.0 248.9 L382.9 250.0 L382.7 252.0 L381.9 253.0 L381.4 255.0 L377.2 264.0 L372.5 272.0 L366.3 280.0 L358.0 287.6 L351.0 292.1 L341.0 296.2 L336.0 297.4 L329.0 298.4 L321.0 298.5 L320.0 297.8 L319.0 298.0 L319.0 299.0 L331.0 303.3 L336.0 304.4 L343.0 305.1 L351.0 304.3 L357.0 302.2 L362.0 299.2 L367.0 294.7 L370.0 291.0 L373.2 286.0 L376.2 280.0 L379.3 272.0 L381.4 264.0 L383.4 253.0 L384.3 251.0 L384.0 248.9Z" fill="#f16726" stroke="#f16726" pathLength="1"/><path style="--i:12" d="M343.0 319.9 L346.0 319.4 L351.0 319.9 L357.0 321.9 L362.0 324.9 L368.4 331.0 L373.1 338.0 L375.2 342.0 L378.4 351.0 L379.3 355.0 L380.5 365.0 L380.2 371.0 L379.2 378.0 L377.1 385.0 L374.9 390.0 L375.4 391.0 L380.3 394.0 L381.6 396.0 L381.8 399.0 L380.0 401.1 L378.0 402.3 L372.0 403.8 L371.0 404.6 L369.0 404.8 L367.0 405.9 L364.0 405.7 L361.0 406.6 L358.0 406.5 L352.0 404.9 L346.0 404.6 L342.0 403.2 L337.1 400.0 L333.0 396.5 L331.5 394.0 L331.3 390.0 L332.0 388.6 L333.0 388.7 L337.1 393.0 L342.0 396.4 L346.0 398.3 L350.0 399.1 L354.0 399.2 L358.0 400.5 L363.0 400.4 L368.0 399.4 L373.8 397.0 L373.0 395.8 L367.3 393.0 L367.3 392.0 L371.2 386.0 L373.4 381.0 L375.3 374.0 L376.1 368.0 L376.2 361.0 L375.4 354.0 L374.2 349.0 L372.1 343.0 L369.1 337.0 L364.7 331.0 L359.0 325.8 L353.0 322.6 L348.0 321.8 L341.0 322.3 L336.0 324.5 L333.0 327.2 L332.0 327.2 L332.0 326.0 L332.9 325.0 L335.0 324.0 L337.0 322.3 L343.0 319.9Z" fill="#e63352" stroke="#e63352" pathLength="1"/><path style="--i:13" d="M325.0 336.5 L325.7 337.0 L323.3 346.0 L322.2 354.0 L322.3 359.0 L323.3 367.0 L326.2 377.0 L325.0 384.2 L324.2 381.0 L322.3 377.0 L320.4 369.0 L319.3 359.0 L319.4 354.0 L320.2 352.0 L320.2 349.0 L321.4 344.0 L323.3 339.0 L325.0 336.5Z" fill="#e63352" stroke="#e63352" pathLength="1"/></svg>
+        <span class="glint"></span>
+      </div>
+      <div class="float f-open status"><span class="dot"></span><span><b class="st-big">Pon–Sub 09–17 h</b><small class="st-small">Bulevar Zorana Đinđića 83</small></span></div>
+      <div class="float f-price"><small>Higijenska frizura</small><b>od 2.800 din.</b><a class="btn-3" href="#cenovnik">Izračunaj za svog psa</a></div>
+      <div class="seal" aria-hidden="true">
+        <svg class="ring" viewBox="0 0 128 128"><defs><path id="circ" d="M64 64m-50 0a50 50 0 1 1 100 0a50 50 0 1 1-100 0"/></defs><text textLength="312" lengthAdjust="spacing"><textPath href="#circ" textLength="312" lengthAdjust="spacing">Grooming Line · Salon za pse · Novi Beograd ·</textPath></text></svg>
+        <svg class="mark" viewBox="95 71 350 343"><use href="#logo"/></svg>
+      </div>
     </div>
   </div>
+</section>
+
+<!-- RASE -->
+<div class="breeds" aria-label="Rase koje redovno dolaze">
+  <div class="track">
+    <ul><li style="--c:var(--pk)">Pudle</li><li style="--c:var(--cy)">Pomeranci</li><li style="--c:var(--go)">Jorkširi</li><li style="--c:var(--li)">Šnauceri</li><li style="--c:var(--or)">Korgiji</li><li style="--c:var(--pu)">Mopsevi</li><li style="--c:var(--rd)">Buldozi</li><li style="--c:var(--cy)">Haskiji</li><li style="--c:var(--ye)">Čivave</li><li style="--c:var(--gr)">Koker španijeli</li><li style="--c:var(--pk)">Retriveri</li></ul>
+    <ul aria-hidden="true"><li style="--c:var(--pk)">Pudle</li><li style="--c:var(--cy)">Pomeranci</li><li style="--c:var(--go)">Jorkširi</li><li style="--c:var(--li)">Šnauceri</li><li style="--c:var(--or)">Korgiji</li><li style="--c:var(--pu)">Mopsevi</li><li style="--c:var(--rd)">Buldozi</li><li style="--c:var(--cy)">Haskiji</li><li style="--c:var(--ye)">Čivave</li><li style="--c:var(--gr)">Koker španijeli</li><li style="--c:var(--pk)">Retriveri</li></ul>
+  </div>
+</div>
+
+<!-- BOL -->
+<section class="section" id="zasto">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Zašto dolaze kod nas</span>
+      <h2 class="h2"><span class="s">Vlasnici obično dođu sa</span><span class="s"><em>jednom od ovih</em> rečenica.</span></h2>
+      <p class="lead"><span class="s">Svaka ima svoje rešenje u salonu.</span><span class="s">Klikni na svoju i vidi šta radimo.</span></p>
+    </div>
+    <div class="pain-grid">
+      <article class="pain-card rv" style="--c:var(--cy)">
+        <q>Dlaka je svuda po stanu, po kauču i po meni.</q>
+        <p>Furminiranjem vadimo višak dlake koja je u opadanju. Ta dlaka ostaje u salonu, a ne u tvom stanu.</p>
+        <button class="btn-3" data-book="linjanje">Tretman protiv linjanja</button>
+      </article>
+      <article class="pain-card rv" style="--c:var(--pk)">
+        <q>Iz drugih salona izlazi uplašen i istraumiran.</q>
+        <p>Pse ne vezujemo i ne kažnjavamo. Radimo u tihom prostoru, tempom koji tvom psu prija.</p>
+        <a class="btn-3" href="#termin">Kako izgleda termin</a>
+      </article>
+      <article class="pain-card rv" style="--c:var(--go)">
+        <q>Kupanje kod kuće je borba, a kupatilo poplava.</q>
+        <p>Kupamo profesionalnim preparatima i feniramo dok dlaka ne bude suva do korena. Kući ide čist i mirisan.</p>
+        <button class="btn-3" data-book="kupanje-s">Zakaži kupanje</button>
+      </article>
+      <article class="pain-card rv" style="--c:var(--li)">
+        <q>Dlaka mu se umrsila i ne mogu da je raščešljam.</q>
+        <p>Raščešljavamo i umršenu dlaku i regenerišemo oštećenu. Pola sata raščešljavanja košta 500 dinara.</p>
+        <button class="btn-3" data-book="higijenska">Zakaži sređivanje</button>
+      </article>
+      <article class="pain-card rv" style="--c:var(--pu)">
+        <q>Ne znam koja frizura ide uz njegovu rasu.</q>
+        <p>Frizuru biramo po rasi i tipu dlake. Može higijenska, po tvojoj želji ili po standardu rase.</p>
+        <a class="btn-3" href="#cenovnik">Uporedi frizure</a>
+      </article>
+      <article class="pain-card rv" style="--c:var(--rd)">
+        <q>Stalno se češe, a posle šetnje donese svašta.</q>
+        <p>Uklanjamo postojeće parazite i radimo preventivni tretman. Uz to čistimo uši i sređujemo šape.</p>
+        <button class="btn-3" data-book="paraziti">Tretman protiv parazita</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- USLUGE -->
+<section class="section svc" id="usluge">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Usluge</span>
+      <h2 class="h2"><span class="s">Četiri glavna tretmana</span><span class="s">i <em>sve sitnice</em> oko njih.</span></h2>
+      <p class="lead"><span class="s">Radimo sve tipove dlake.</span><span class="s">Od svilene i kovrdžave do oštre.</span></p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card rv">
+        <figure><img src="assets/pudla-toy.webp" width="900" height="1200" alt="Toy pudla posle šišanja makazama" loading="lazy"><span class="num">01</span><span class="tag">od 2.800 din.</span></figure>
+        <div class="svc-body"><h3>Šišanje</h3><p>Frizura zavisi od rase i tipa dlake. Biraš higijensku, po želji ili po standardu rase.</p><button class="btn-3" data-book="po-zelji">Zakaži šišanje</button></div>
+      </article>
+      <article class="svc-card rv">
+        <figure><img src="assets/snaucer.webp" width="900" height="1200" alt="Patuljasti šnaucer posle trimovanja" loading="lazy"><span class="num">02</span><span class="tag">od 3.800 din.</span></figure>
+        <div class="svc-body"><h3>Trimovanje</h3><p>Dlaku skraćujemo trimerom, čupkanjem preko oštrog nožića. Rasa zadržava pravu strukturu dlake.</p><button class="btn-3" data-book="trimovanje">Zakaži trimovanje</button></div>
+      </article>
+      <article class="svc-card rv">
+        <figure><img src="assets/haski-furminiranje.webp" width="900" height="1125" alt="Haski pored gomile izvađene dlake posle furminiranja" loading="lazy"><span class="num">03</span><span class="tag">od 2.800 din.</span></figure>
+        <div class="svc-body"><h3>Furminiranje</h3><p>Oslobađamo psa viška dlake u opadanju. Gomila sa slike bi inače završila kod tebe kući.</p><button class="btn-3" data-book="linjanje">Zakaži furminiranje</button></div>
+      </article>
+      <article class="svc-card rv">
+        <figure><img src="assets/pomeranac-feniran.webp" width="900" height="962" alt="Pomeranac posle kupanja i feniranja" loading="lazy" style="object-position:50% 20%"><span class="num">04</span><span class="tag">od 1.500 din.</span></figure>
+        <div class="svc-body"><h3>Kupanje i feniranje</h3><p>Kupanje može da počne već sa 2-3 meseca. Skida prljavštinu, masnoću i neprijatan miris.</p><button class="btn-3" data-book="kupanje-s">Zakaži kupanje</button></div>
+      </article>
+    </div>
+    <div class="extras rv">
+      <h3>Uz tretman ili posebno<small>Higijenski tretman sa šapama, noktima i ušima je 800 din.</small></h3>
+      <ul class="chips">
+        <li>Čišćenje ušiju<b>300 din.</b></li>
+        <li>Sečenje noktiju<b>300 din.</b></li>
+        <li>Brijanje šapa i sanitarnog dela<b>300 din.</b></li>
+        <li>Pranje zuba<b>300 din.</b></li>
+        <li>Oblikovanje<b>500 din.</b></li>
+        <li>Raščešljavanje umršene dlake, 30 min<b>500 din.</b></li>
+        <li>Uklanjanje postojećih parazita<b>od 1.300 din.</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CENOVNIK -->
+<section class="section" id="cenovnik">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Cenovnik 2025.</span>
+      <h2 class="h2">Izaberi tretman i veličinu. <em>Cenu vidiš odmah.</em></h2>
+      <p class="lead"><span class="s">Bez pozivanja da pitaš koliko košta.</span><span class="s">Iz kalkulatora odmah zakazuješ termin.</span></p>
+    </div>
+    <div class="calc rv">
+      <div class="calc-l">
+        <div class="step-lbl"><b>1</b>Tretman</div>
+        <div class="pk-list" id="pkList" role="radiogroup" aria-label="Tretman"></div>
+        <div class="step-lbl"><b>2</b>Veličina psa</div>
+        <div class="seg" id="szList" role="radiogroup" aria-label="Veličina psa"></div>
+        <div id="coatWrap" hidden>
+          <div class="step-lbl"><b>3</b>Dlaka</div>
+          <div class="seg" id="coatList" role="radiogroup" aria-label="Tip dlake">
+            <label class="opt"><input type="radio" name="c-coat" value="kratka" checked><span>Kratkodlaki</span></label>
+            <label class="opt"><input type="radio" name="c-coat" value="duga"><span>Dugodlaki</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="calc-r" aria-live="polite">
+        <span class="eyebrow">Tvoja cena</span>
+        <div class="price" id="cPrice">3.300 <small>din.</small></div>
+        <div class="price-name" id="cName">Higijenska frizura · srednji pas</div>
+        <ul class="incl" id="cIncl"></ul>
+        <div class="special" id="cSpecial"></div>
+        <button class="btn on-dark has-arrow" id="cBook">Zakaži ovaj tretman<span class="ar"><svg class="i"><use href="#i-arr"/></svg></span></button>
+        <p class="calc-note">Važeći cenovnik salona. Kod ekstremno neodržavanih pasa doplata je 1.000 din.</p>
+      </div>
+    </div>
+    <details class="full-list rv">
+      <summary>Ceo cenovnik na jednom mestu<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary>
+      <div class="pl-grid" id="plGrid"></div>
+    </details>
+  </div>
+</section>
+
+<!-- TOK TERMINA -->
+<section class="section flow" id="termin">
+  <div class="wrap flow-wrap">
+    <div class="flow-side rv">
+      <span class="eyebrow">Kako ide termin</span>
+      <h2 class="h2"><span class="s">Od poziva do</span><span class="s"><em>mirisnog psa.</em></span></h2>
+      <p class="lead"><span class="s">Pet koraka, po sistemu zakazivanja.</span><span class="s">Tako se ceo termin posveti samo tvom psu.</span></p>
+      <button class="btn on-dark has-arrow" data-book>Zakaži prvi korak<span class="ar"><svg class="i"><use href="#i-arr"/></svg></span></button>
+    </div>
+    <div class="steps" id="steps">
+      <span class="rail"></span><span class="rail-fill" id="railFill"></span>
+      <div class="step" style="--sc:var(--pu)"><span class="n">1</span><h3>Zakažeš termin</h3><p>Preko forme na sajtu ili pozivom na 063 111 41 61. Javiš rasu i veličinu, mi predložimo tretman.</p></div>
+      <div class="step" style="--sc:var(--pk)"><span class="n">2</span><h3>Podsetimo te</h3><p>Pred termin ti se javimo. Ako nešto iskrsne, imaš vremena da ga pomeriš.</p><span class="src">„Tu su uvek da nas podsete kad imamo zakazano šišanje.“ - Tina</span></div>
+      <div class="step" style="--sc:var(--or)"><span class="n">3</span><h3>Upoznavanje bez stresa</h3><p>Psa ne vezujemo i ne kažnjavamo. Prvo se opusti u tihom prostoru, pa tek onda krećemo.</p></div>
+      <div class="step" style="--sc:var(--li)"><span class="n">4</span><h3>Tretman</h3><p>Kupanje, feniranje, frizura, šape, nokti i uši. Sve radimo profesionalnim preparatima za dlaku i kožu.</p></div>
+      <div class="step" style="--sc:var(--cy)"><span class="n">5</span><h3>Preuzimanje i saveti</h3><p>Dobiješ preporuku za pribor kojim ga neguješ između dva tretmana. Sledeći boravak je kraći, a cena manja.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIJA -->
+<section class="section" id="galerija">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Galerija</span>
+      <h2 class="h2">Gosti salona, <em>posle tretmana.</em></h2>
+      <p class="lead"><span class="s">Sve fotografije su snimljene kod nas.</span><span class="s">Klikni na psa da ga vidiš izbliza.</span></p>
+    </div>
+    <div class="gal" id="gal"></div>
+    <div class="gal-cta"><button class="btn-2" id="galMore">Prikaži još gostiju</button></div>
+  </div>
+</section>
+
+<!-- SALON -->
+<section class="section salon" id="salon">
+  <div class="wrap split">
+    <div class="collage rv">
+      <img class="c1" src="assets/korgi-salon.webp" width="900" height="995" alt="Korgi u salonu Grooming Line" loading="lazy">
+      <img class="c2" src="assets/pomeranac-zid.webp" width="900" height="900" alt="Pomeranac ispred zida sa logom salona" loading="lazy">
+      <img class="c3" src="assets/jorksir-salon.webp" width="900" height="1200" alt="Jorkširski terijer na pločicama salona" loading="lazy">
+      <div class="stamp"><span><b>6</b>dana<br>u nedelji</span></div>
+    </div>
+    <div class="salon-copy rv">
+      <span class="eyebrow">Salon</span>
+      <h2 class="h2"><span class="s">Salon kod Arene,</span><span class="s">gde je pas <em>miran.</em></span></h2>
+      <p>Grooming Line je savremeno opremljen salon u centru Novog Beograda, odmah pored Kombank arene. Radimo u tihom prostoru gde je pas bezbedan i opušten.</p>
+      <p>Grumeri imaju dugogodišnje iskustvo sa različitim rasama i tipovima dlake. Koristimo vrhunske profesionalne preparate i radimo sa puno ljubavi i pažnje.</p>
+      <ul class="facts">
+        <li><svg class="i"><use href="#i-pin"/></svg><span><b>Bulevar Zorana Đinđića 83</b>lokal 4-1, Novi Beograd</span></li>
+        <li><svg class="i"><use href="#i-clock"/></svg><span><b>Ponedeljak - subota</b>od 09.00 do 17.00 h</span></li>
+        <li><svg class="i"><use href="#i-award"/></svg><span><b>Sertifikovani grumer</b>sa iskustvom na svim rasama</span></li>
+        <li><svg class="i"><use href="#i-heart"/></svg><span><b>Bez vezivanja</b>i bez kažnjavanja</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats rv">
+      <div><b>11</b><span>usluga za dlaku, kožu, šape i uši</span></div>
+      <div><b>49</b><span>pisanih utisaka vlasnika</span></div>
+      <div><b>2-3</b><span>meseca, od kada štene može na kupanje</span></div>
+      <div><b>500</b><span>dinara za pola sata raščešljavanja</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- UTISCI -->
+<section class="section rev" id="utisci">
+  <div class="wrap">
+    <div class="rev-top">
+      <div class="rv">
+        <span class="eyebrow">Utisci</span>
+        <p class="big-q">Vodili smo našu Mašu kod mnogih frizera za pse. Ali kao što je u ovom salonu, nigde nismo videli.</p>
+        <div class="who"><span class="av" style="--c:var(--pu)">OS</span><span><b>Ognjen Stojnić</b><small>vlasnik Maše</small></span></div>
+      </div>
+      <div class="rev-meta rv">
+        <span class="count">49</span>
+        <p>Toliko vlasnika je ostavilo pisani utisak. Ovo su njihove reči, ne naše.</p>
+        <div class="rev-nav"><button class="icon-btn light" id="revPrev" aria-label="Prethodni utisci"><svg class="i"><use href="#i-left"/></svg></button><button class="icon-btn light" id="revNext" aria-label="Sledeći utisci"><svg class="i"><use href="#i-right"/></svg></button></div>
+      </div>
+    </div>
+    <div class="rev-row" id="revRow" tabindex="0" aria-label="Utisci vlasnika"></div>
+  </div>
+</section>
+
+<!-- 12 MOLBI -->
+<section class="section pleas" id="molbe">
+  <div class="wrap">
+    <div class="box rv">
+      <div>
+        <span class="eyebrow">Sa našeg bloga</span>
+        <h2 class="h2">12 molbi <em>jednog psa.</em></h2>
+        <p class="lead"><span class="s">Tekst koji držimo na sajtu godinama.</span><span class="s">Pročitaj ih redom, traje dva minuta.</span></p>
+      </div>
+      <div class="plea">
+        <span class="no" id="pleaNo">Molba 1 od 12</span>
+        <blockquote id="pleaTxt">Moj život traje 10 do 15 godina. Svaki rastanak od tebe za mene znači patnju. Razmisli o tome pre nego što me uzmeš.</blockquote>
+        <div class="plea-ctrl">
+          <button class="icon-btn light" id="pleaPrev" aria-label="Prethodna molba"><svg class="i"><use href="#i-left"/></svg></button>
+          <button class="icon-btn light" id="pleaNext" aria-label="Sledeća molba"><svg class="i"><use href="#i-right"/></svg></button>
+          <div class="dots" id="pleaDots"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAVETI -->
+<section class="section" id="saveti">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Saveti</span>
+      <h2 class="h2"><span class="s">Nega psa</span><span class="s"><em>između dva termina.</em></span></h2>
+      <p class="lead"><span class="s">Kratki saveti sa našeg bloga.</span><span class="s">Otvori karticu i pročitaj na licu mesta.</span></p>
+    </div>
+    <div class="tips">
+      <details class="tip rv" style="--c:var(--gr)">
+        <summary><span class="tg">Ishrana</span><h3>12 zdravih namirnica za tvog psa</h3><p>Od piletine i šargarepe do ovsene kaše. I šta nikako ne sme u činiju.</p><span class="open-lbl">Pročitaj listu<svg class="i"><use href="#i-down"/></svg></span></summary>
+        <div class="tip-body"><ul>
+          <li><b>Piletina</b> - kuvana, uz povrće ili granule. Pileće kosti nikako, jer pucaju i mogu da povrede psa.</li>
+          <li><b>Jogurt</b> - samo nemasni, bez zaslađivača i ukusa. Bogat proteinom i kalcijumom.</li>
+          <li><b>Kikiriki puter</b> - bez ksilitola i sa malo soli. Ksilitol može biti smrtonosan.</li>
+          <li><b>Šargarepa</b> - malo kalorija, puno vlakana i vitamina A. Sirova čisti zube.</li>
+          <li><b>Sitan sir</b> - lak za varenje, dobar kao poslastica.</li>
+          <li><b>Boranija</b> - puno vlakana, malo kalorija. Dobra za pse na dijeti.</li>
+          <li><b>Bundeva i slatki krompir</b> - vitamin A, prijaju osetljivom stomaku.</li>
+          <li><b>Jaja</b> - kuvana bez soli i bibera.</li>
+          <li><b>Jabuke</b> - na kriške, bez semenki.</li>
+          <li><b>Losos</b> - samo kuvan, nikako sirov. Bogat omega 3 kiselinama.</li>
+          <li><b>Ovsena kaša</b> - vitamini, minerali i vlakna.</li>
+        </ul></div>
+      </details>
+      <details class="tip rv" style="--c:var(--cy)">
+        <summary><span class="tg">Higijena</span><h3>Nega šapa posle šetnje</h3><p>Ulica, park i trava ostave bakterije na jastučićima. Evo kako da ih očistiš.</p><span class="open-lbl">Pročitaj savet<svg class="i"><use href="#i-down"/></svg></span></summary>
+        <div class="tip-body">
+          <p>Blago zaprljane šape prebriši vlažnom maramicom za pse. Posle blata, ulja ili izmeta operi ih šamponom za pse i dobro osuši.</p>
+          <p>Ne zaboravi prostor između prstiju, tu se prljavština najviše zavlači. Leti biraj hladovinu i travu umesto vrelog betona, a zimi šape isperi mlakom vodom zbog soli.</p>
+          <p>Krema za hidrataciju šapa drži jastučiće mekim i zdravim.</p>
+        </div>
+      </details>
+      <details class="tip rv" style="--c:var(--or)">
+        <summary><span class="tg">Recept</span><h3>Domaći obrok u tri trećine</h3><p>Proveren, zdrav i jednostavan. Meso, pirinač i povrće u istoj razmeri.</p><span class="open-lbl">Pročitaj recept<svg class="i"><use href="#i-down"/></svg></span></summary>
+        <div class="tip-body">
+          <ul><li><b>1/3 pirinča</b>, dobro skuvanog</li><li><b>1/3 mesa</b>, piletine ili govedine, kuvanog toliko da se unište bakterije</li><li><b>1/3 povrća</b> po izboru, obavezno sa šargarepom</li></ul>
+          <p>Sve pomešaj i ostavi da se ohladi. Dobro izmešaj, jer će pas sigurno pokušati da pojede samo meso.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="pitanja">
+  <div class="wrap">
+    <div class="faq-side rv">
+      <span class="eyebrow">Pitanja</span>
+      <h2 class="h2">Pre nego što <em>zakažeš.</em></h2>
+      <p class="lead"><span class="s">Najčešća pitanja vlasnika.</span><span class="s">Za sve ostalo pozovi 063 111 41 61.</span></p>
+      <a class="btn-2" href="tel:+381631114161">Pozovi salon</a>
+    </div>
+    <div class="rv">
+      <details class="qa"><summary>Od kog uzrasta štene može kod vas?<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Na kupanje već sa 2-3 meseca. Rano navikavanje na kupanje i fen kasnije olakša svaki termin.</p></details>
+      <details class="qa"><summary>Da li vezujete pse tokom tretmana?<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Ne. Pse ne vezujemo i ne kažnjavamo. Sve je podešeno tako da se pas oseća prijatno i bezbedno.</p></details>
+      <details class="qa"><summary>Kako zakazujem termin?<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Preko forme za zakazivanje na ovoj stranici ili pozivom na 063 111 41 61 i 011 31 33 234. Termin ti potvrđujemo pozivom ili porukom.</p></details>
+      <details class="qa"><summary>Moj pas ima jako umršenu dlaku. Šta onda?<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Raščešljavanje umršene dlake je 500 dinara za 30 minuta. Kod ekstremno neodržavanih pasa doplata je 1.000 dinara.</p></details>
+      <details class="qa"><summary>Imate li pakete i popuste?<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Imamo više paketa sa popustima. Pitaj nas pri zakazivanju koji važi za tvog psa.</p></details>
+      <details class="qa"><summary>Kako da ga negujem između dva tretmana?<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Posle svakog tretmana ti preporučimo osnovni pribor za kuću. Kad dlaku održavaš između termina, boravak u salonu je kraći, a cena manja.</p></details>
+      <details class="qa"><summary>Koje rase šišate?<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Sve rase i sve tipove dlake. Za lagota, samojeda, čau čaua, haskija i pomeranca imamo posebne cene u cenovniku.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="section contact" id="kontakt">
+  <div class="wrap">
+    <div class="head rv" style="margin-bottom:0">
+      <span class="eyebrow">Kontakt</span>
+      <h2 class="h2">Dođi do salona <em>pored Arene.</em></h2>
+      <p class="lead" style="color:var(--muted-d)"><span class="s">Radimo od ponedeljka do subote.</span><span class="s">Termin zakaži online ili pozivom.</span></p>
+    </div>
+    <div class="ct-grid">
+      <div class="ct-card rv">
+        <ul class="ct-list">
+          <li><span class="ic"><svg class="i"><use href="#i-pin"/></svg></span><span><small>Adresa</small><b>Bulevar Zorana Đinđića 83, lokal 4-1</b>Novi Beograd, pored Kombank arene</span></li>
+          <li><span class="ic"><svg class="i"><use href="#i-phone"/></svg></span><span><small>Telefon</small><a href="tel:+381631114161">063 111 41 61</a><a href="tel:+381113133234">011 31 33 234</a></span></li>
+          <li><span class="ic"><svg class="i"><use href="#i-mail"/></svg></span><span><small>Mejl</small><a href="mailto:office@groomingline.rs">office@groomingline.rs</a></span></li>
+        </ul>
+        <ul class="hours" id="hours">
+          <li data-d="1"><span>Ponedeljak</span><span>09-17 h</span></li>
+          <li data-d="2"><span>Utorak</span><span>09-17 h</span></li>
+          <li data-d="3"><span>Sreda</span><span>09-17 h</span></li>
+          <li data-d="4"><span>Četvrtak</span><span>09-17 h</span></li>
+          <li data-d="5"><span>Petak</span><span>09-17 h</span></li>
+          <li data-d="6"><span>Subota</span><span>09-17 h</span></li>
+          <li data-d="0"><span>Nedelja</span><span>ne radimo</span></li>
+        </ul>
+        <div class="ct-cta">
+          <button class="btn on-dark has-arrow" data-book>Zakaži termin<span class="ar"><svg class="i"><use href="#i-arr"/></svg></span></button>
+          <a class="btn-2" href="tel:+381631114161">Pozovi</a>
+        </div>
+      </div>
+      <div class="map rv">
+        <iframe title="Mapa: Grooming Line, Bulevar Zorana Đinđića 83, Novi Beograd" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Bulevar%20Zorana%20%C4%90in%C4%91i%C4%87a%2083%2C%20Novi%20Beograd&z=16&output=embed" tabindex="-1"></iframe>
+        <div class="map-card"><svg viewBox="95 71 350 343" aria-hidden="true"><use href="#logo"/></svg><span><b>Grooming Line</b><small>Bulevar Zorana Đinđića 83, lokal 4-1</small></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top"><svg viewBox="95 71 350 343" aria-hidden="true"><use href="#logo"/></svg><span><b>Grooming Line</b><small>salon za negu pasa</small></span></a>
+        <p>Šišanje, trimovanje, furminiranje, kupanje i feniranje pasa na Novom Beogradu. Pratite nas kao @grooming_line na Instagramu.</p>
+      </div>
+      <div>
+        <h4>Salon</h4>
+        <ul><li><a href="#usluge">Usluge</a></li><li><a href="#cenovnik">Cenovnik</a></li><li><a href="#galerija">Galerija</a></li><li><a href="#utisci">Utisci</a></li><li><a href="#pitanja">Pitanja</a></li></ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul><li>Bulevar Zorana Đinđića 83, lokal 4-1</li><li><a href="tel:+381631114161">063 111 41 61</a></li><li><a href="tel:+381113133234">011 31 33 234</a></li><li><a href="mailto:office@groomingline.rs">office@groomingline.rs</a></li><li>Pon–Sub 09–17 h</li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Grooming Line. Sva prava zadržana.</span><span>Salon za negu pasa, Novi Beograd</span></div>
+  </div>
 </footer>
+<div class="foot-line"></div>
+
+<div class="mbar" id="mbar">
+  <a href="tel:+381631114161" aria-label="Pozovi salon"><svg class="i"><use href="#i-phone"/></svg></a>
+  <button class="btn on-dark" data-book>Zakaži termin</button>
+</div>
+
+<!-- LIGHTBOX -->
+<dialog class="lb" id="lb" aria-label="Fotografija iz galerije">
+  <div class="lb-in">
+    <img id="lbImg" src="" alt="">
+    <div class="lb-bar"><span id="lbCap"></span><span class="ctrl"><button class="icon-btn" id="lbPrev" aria-label="Prethodna"><svg class="i"><use href="#i-left"/></svg></button><button class="icon-btn" id="lbNext" aria-label="Sledeća"><svg class="i"><use href="#i-right"/></svg></button><button class="icon-btn" id="lbClose" aria-label="Zatvori"><svg class="i"><use href="#i-x"/></svg></button></span></div>
+  </div>
+</dialog>
+
+<!-- ZAKAZIVANJE -->
+<dialog class="bk" id="bk" aria-labelledby="bkTitle">
+  <form class="bk-in" id="bkForm" novalidate>
+    <aside class="bk-side">
+      <div class="brand"><svg viewBox="95 71 350 343" aria-hidden="true"><use href="#logo"/></svg><span><b>Grooming Line</b><small>zakazivanje termina</small></span></div>
+      <ol class="bk-steps" id="bkSteps"><li>Tretman</li><li>Ljubimac</li><li>Termin</li><li>Kontakt</li><li>Pregled</li></ol>
+      <div class="bk-sum"><span>Okvirna cena</span><b id="bkSum">-</b><span id="bkSumTxt">Izaberi tretman i veličinu</span></div>
+    </aside>
+    <div class="bk-main">
+      <div class="bk-top"><div class="bk-prog"><i id="bkProg"></i></div><button type="button" class="icon-btn light bk-x" id="bkClose" aria-label="Zatvori zakazivanje"><svg class="i"><use href="#i-x"/></svg></button></div>
+      <div class="bk-body" id="bkBody">
+        <section class="pane" data-p="0">
+          <h3 id="bkTitle">Šta tvom psu treba?</h3>
+          <p class="sub">Izaberi tretman. Ako nisi siguran, izaberi poslednju opciju i posavetovaćemo te.</p>
+          <div class="svc-pick" id="bkSvc"></div>
+        </section>
+        <section class="pane" data-p="1">
+          <h3>Ko dolazi na tretman?</h3>
+          <p class="sub">Veličina određuje cenu, a ime da ga dočekamo kako treba.</p>
+          <h4>Veličina</h4>
+          <div class="size-pick" id="bkSize"></div>
+          <div id="bkCoatWrap" hidden><h4>Dlaka</h4><div class="coat-pick"><label class="opt"><input type="radio" name="coat" value="kratka" checked><span>Kratkodlaki</span></label><label class="opt"><input type="radio" name="coat" value="duga"><span>Dugodlaki</span></label></div></div>
+          <h4>Podaci o psu</h4>
+          <div class="row2"><div class="fld"><label for="fPas">Ime psa</label><input id="fPas" name="pas" autocomplete="off" placeholder="npr. Koko"></div><div class="fld"><label for="fRasa">Rasa</label><input id="fRasa" name="rasa" autocomplete="off" placeholder="npr. pomeranac"></div></div>
+          <h4>Dodaci</h4>
+          <div class="add-pick">
+            <label class="opt chk"><input type="checkbox" name="add" value="zubi" data-p="300"><span>Pranje zuba<em>+300 din.</em></span></label>
+            <label class="opt chk"><input type="checkbox" name="add" value="oblikovanje" data-p="500"><span>Oblikovanje<em>+500 din.</em></span></label>
+            <label class="opt chk"><input type="checkbox" name="add" value="rascesljavanje" data-p="500"><span>Raščešljavanje<em>+500 din.</em></span></label>
+            <label class="opt chk"><input type="checkbox" name="add" value="prvi" data-p="0"><span>Prvi put dolazimo</span></label>
+          </div>
+        </section>
+        <section class="pane" data-p="2">
+          <h3>Kada ti odgovara?</h3>
+          <p class="sub">Izaberi dan i okvirno vreme. Radimo od ponedeljka do subote, 09-17 h.</p>
+          <div class="cal"><div class="cal-head"><button type="button" class="icon-btn light" id="calPrev" aria-label="Prethodni mesec"><svg class="i"><use href="#i-left"/></svg></button><b id="calTitle"></b><button type="button" class="icon-btn light" id="calNext" aria-label="Sledeći mesec"><svg class="i"><use href="#i-right"/></svg></button></div><div class="cal-grid" id="calGrid"></div></div>
+          <h4>Željeno vreme dolaska</h4>
+          <div class="slots" id="bkSlots"></div>
+          <p class="slot-note">Tačno vreme potvrđujemo pozivom, prema rasporedu za taj dan.</p>
+        </section>
+        <section class="pane" data-p="3">
+          <h3>Kako da te dobijemo?</h3>
+          <p class="sub">Telefon nam treba da ti potvrdimo termin.</p>
+          <div class="row2">
+            <div class="fld" id="fldIme"><label for="fIme">Ime i prezime</label><input id="fIme" name="ime" autocomplete="name" required><span class="msg">Upiši svoje ime.</span></div>
+            <div class="fld" id="fldTel"><label for="fTel">Telefon</label><input id="fTel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="06x xxx xx xx" required><span class="msg">Upiši ispravan broj telefona.</span></div>
+          </div>
+          <h4>Potvrdu želim</h4>
+          <div class="coat-pick"><label class="opt"><input type="radio" name="potvrda" value="pozivom" checked><span>Pozivom</span></label><label class="opt"><input type="radio" name="potvrda" value="porukom"><span>Porukom</span></label></div>
+          <div class="fld" style="margin-top:24px"><label for="fNap">Napomena za grumera</label><textarea id="fNap" name="napomena" placeholder="npr. plaši se fena, alergičan na..."></textarea></div>
+        </section>
+        <section class="pane" data-p="4">
+          <h3>Proveri i pošalji zahtev</h3>
+          <p class="sub">Zahtev ide direktno u salon. Termin je zakazan kad ti ga potvrdimo.</p>
+          <div class="review"><dl id="bkReview"></dl><div class="tot"><span>Okvirna cena</span><b id="bkTotal">-</b></div></div>
+          <p class="fine">SMS ide na 063 111 41 61, mejl na office@groomingline.rs. Poruka je već popunjena, samo je pošalješ. Više voliš Viber? <button type="button" class="btn-3" id="sendCopy">Kopiraj poruku</button></p>
+        </section>
+        <section class="pane" data-p="5">
+          <div class="done">
+            <div class="ok"><svg viewBox="95 71 350 343" aria-hidden="true"><use href="#logo"/></svg></div>
+            <h3 id="doneTitle">Hvala, zahtev je spreman.</h3>
+            <p id="doneTxt">Čim stigne, javljamo ti se da potvrdimo termin. Ako se ne javimo u toku radnog dana, pozovi 063 111 41 61.</p>
+            <button type="button" class="btn" id="doneClose">Nazad na sajt</button>
+          </div>
+        </section>
+      </div>
+      <div class="bk-foot" id="bkFoot">
+        <button type="button" class="btn-2" id="bkBack">Nazad</button>
+        <span class="hint">Brže telefonom? <a href="tel:+381631114161">063 111 41 61</a></span>
+        <button type="button" class="btn has-arrow" id="bkNext">Dalje<span class="ar"><svg class="i"><use href="#i-arr"/></svg></span></button>
+        <span class="send" id="sendBox"><a class="btn-2" id="sendSms" href="#">Pošalji SMS-om</a><a class="btn-2" id="sendMail" href="#">Pošalji mejlom</a></span>
+      </div>
+    </div>
+  </form>
+</dialog>
 
 <script>
-  // Header scroll efekat
-  const header = document.getElementById('site-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
+document.body.classList.remove('no-js');
+(function(){
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const fmt=n=>n.toLocaleString('sr-RS').replace(/,/g,'.');
+const money=v=>Array.isArray(v)?fmt(v[0])+'–'+fmt(v[1]):fmt(v);
 
-  // Hamburger meni
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburgerBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  });
+/* ---------- podaci: cenovnik 2025 ---------- */
+const BASE=['Brijanje šapa i sanitarnog dela','Sečenje noktiju','Čišćenje ušiju'];
+const PK=[
+ {id:'higijenska',n:'Higijenska frizura',inc:[...BASE,'Kupanje i feniranje','Šišanje mašinicom i makazama'],p:{m:2800,s:3300,v:3800}},
+ {id:'po-zelji',n:'Frizura po želji',inc:[...BASE,'Kupanje i feniranje','Šišanje makazama'],p:{m:3500,s:3900,v:5000}},
+ {id:'po-standardu',n:'Frizura po standardu rase',inc:[...BASE,'Kupanje i feniranje','Šišanje makazama po standardu rase'],p:{m:3800,s:4300,v:5500},sp:[['Lagoto',4300]]},
+ {id:'trimovanje',n:'Trimovanje',inc:[...BASE,'Kupanje i feniranje','Trimovanje i oblikovanje'],p:{m:3800,s:4400,v:5800}},
+ {id:'linjanje',n:'Tretman protiv linjanja',short:'Furminiranje',inc:[...BASE,'Kupanje i feniranje','Vađenje mrtve dlake'],coat:1,p:{kratka:{m:2800,s:3300,v:3800,x:5200},duga:{m:3200,s:3700,v:4300,x:6600}},sp:[['Samojed',[5800,6500]],['Čau čau',4200],['Haski',4800]]},
+ {id:'kupanje-h',n:'Kupanje uz higijensko sređivanje',short:'Kupanje + higijena',inc:[...BASE,'Kupanje i sušenje'],p:{m:1500,s:2000,v:2700,x:3700}},
+ {id:'kupanje-s',n:'Kupanje i feniranje',inc:[...BASE,'Kupanje i feniranje'],p:{m:[2000,2200],s:[2500,2700],v:3500,x:4500},sp:[['Samojed',4000],['Čau čau',3200],['Pomeranac',2300]]},
+ {id:'paraziti',n:'Tretman protiv parazita',inc:['Uklanjanje postojećih parazita'],p:{m:1300,s:1800,v:2300}}
+];
+const SZ={m:['Mali pas','mali pas','npr. jorkšir, čivava'],s:['Srednji pas','srednji pas','npr. koker, šnaucer'],v:['Veliki pas','veliki pas','npr. retriver, haski'],x:['Extra veliki','extra veliki pas','npr. samojed']};
+const pk=id=>PK.find(p=>p.id===id);
+const table=(p,coat)=>p.coat?p.p[coat||'kratka']:p.p;
+const lowest=p=>{const t=p.coat?p.p.kratka:p.p;const v=Object.values(t)[0];return Array.isArray(v)?v[0]:v};
+const priceOf=(p,sz,coat)=>{const t=table(p,coat);return t[sz]};
 
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  revealEls.forEach(el => el.classList.add('pre'));
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          entry.target.classList.remove('pre');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    revealEls.forEach(el => observer.observe(el));
-  } else {
-    revealEls.forEach(el => el.classList.remove('pre'));
+/* ---------- status otvoreno ---------- */
+function bgNow(){const s=new Date().toLocaleString('en-US',{timeZone:'Europe/Belgrade'});return new Date(s)}
+function status(){
+  const d=bgNow(),day=d.getDay(),h=d.getHours()+d.getMinutes()/60;
+  const open=day>=1&&day<=6&&h>=9&&h<17;
+  let next='';
+  if(!open){
+    if(day>=1&&day<=6&&h<9) next='otvaramo danas u 09.00';
+    else if(day===6||day===0) next='otvaramo u ponedeljak u 09.00';
+    else next='otvaramo sutra u 09.00';
   }
-</script>
+  $$('.status').forEach(el=>el.classList.toggle('is-open',open));
+  const top=$('.topbar .st-txt'); if(top) top.textContent=open?'Otvoreno sada · do 17 h':'Zatvoreno · '+next;
+  const big=$('.st-big'),sm=$('.st-small');
+  if(big){big.textContent=open?'Otvoreno sada':'Trenutno zatvoreno';sm.textContent=open?'radimo do 17 h, kod Arene':next}
+  const li=$(`#hours li[data-d="${day}"]`); if(li) li.classList.add('today');
+}
+status();
 
+/* ---------- header / meni ---------- */
+const hdr=$('#hdr'),mbar=$('#mbar');
+const onScroll=()=>{const y=scrollY;hdr.classList.toggle('scrolled',y>8);mbar.classList.toggle('show',y>560)};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+const burger=$('#burger'),mnav=$('#mnav');
+const setMenu=o=>{mnav.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
+burger.addEventListener('click',()=>setMenu(!mnav.classList.contains('open')));
+$$('#mnav a, #mnav button').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+
+/* ---------- reveal ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+$$('.rv').forEach((el,i)=>{const sib=[...el.parentNode.children].filter(c=>c.classList.contains('rv'));el.style.transitionDelay=Math.min(sib.indexOf(el),5)*80+'ms';io.observe(el)});
+
+/* ---------- kalkulator ---------- */
+const pkList=$('#pkList'),szList=$('#szList');
+pkList.innerHTML=PK.map((p,i)=>`<label class="opt"><input type="radio" name="c-pk" value="${p.id}" ${i===0?'checked':''}><span>${p.short||p.n}<small>od ${fmt(lowest(p))}</small></span></label>`).join('');
+szList.innerHTML=Object.entries(SZ).map(([k,v])=>`<label class="opt"><input type="radio" name="c-sz" value="${k}" ${k==='s'?'checked':''}><span>${v[0]}</span></label>`).join('');
+const ck=svg=>`<svg class="i"><use href="#i-check"/></svg>`;
+function calc(){
+  const p=pk($('input[name=c-pk]:checked').value);
+  const coat=$('input[name=c-coat]:checked').value;
+  $('#coatWrap').hidden=!p.coat;
+  const t=table(p,coat);
+  $$('input[name=c-sz]').forEach(r=>{r.disabled=!(r.value in t)});
+  let sz=$('input[name=c-sz]:checked');
+  if(!sz||sz.disabled){sz=$$('input[name=c-sz]').find(r=>!r.disabled);sz.checked=true}
+  const v=t[sz.value];
+  $('#cPrice').innerHTML=money(v)+' <small>din.</small>';
+  $('#cName').textContent=p.n+' · '+SZ[sz.value][1]+(p.coat?(coat==='duga'?', dugodlaki':', kratkodlaki'):'');
+  $('#cIncl').innerHTML=p.inc.map(x=>`<li>${ck()}<span>${x}</span></li>`).join('');
+  $('#cSpecial').innerHTML=p.sp?'<b>Posebne cene:</b> '+p.sp.map(([n,c])=>`${n} ${money(c)} din.`).join(' · '):'';
+  $('#cBook').dataset.book=p.id; $('#cBook').dataset.size=sz.value; $('#cBook').dataset.coat=coat;
+}
+$$('.calc input').forEach(i=>i.addEventListener('change',calc));calc();
+// ceo cenovnik
+$('#plGrid').innerHTML=PK.map(p=>{
+  const rows=t=>Object.entries(t).map(([k,v])=>`<li><span>${SZ[k][0]}</span><b>${money(v)} din.</b></li>`).join('');
+  const body=p.coat?`<p>Kratkodlaki</p><ul>${rows(p.p.kratka)}</ul><p style="margin-top:12px">Dugodlaki</p><ul>${rows(p.p.duga)}</ul>`:`<ul>${rows(p.p)}</ul>`;
+  const sp=p.sp?`<ul>${p.sp.map(([n,c])=>`<li><span>${n}</span><b>${money(c)} din.</b></li>`).join('')}</ul>`:'';
+  return `<div><h4>${p.n}</h4><p>${p.inc.join(', ')}</p>${body}${sp}</div>`}).join('')+
+  `<div><h4>Dodatne usluge</h4><p>Pojedinačno ili uz tretman</p><ul><li><span>Higijenski tretman (šape, nokti, uši)</span><b>800 din.</b></li><li><span>Brijanje šapa i sanitarnog dela</span><b>300 din.</b></li><li><span>Sečenje noktiju</span><b>300 din.</b></li><li><span>Čišćenje ušiju</span><b>300 din.</b></li><li><span>Pranje zuba</span><b>300 din.</b></li><li><span>Oblikovanje</span><b>500 din.</b></li><li><span>Raščešljavanje umršene dlake, 30 min</span><b>500 din.</b></li><li><span>Ekstremno neodržavani psi</span><b>+1.000 din.</b></li></ul></div>`;
+
+/* ---------- tok termina: linija na skrol ---------- */
+const steps=$('#steps'),fill=$('#railFill'),stepEls=$$('.step',steps);
+function rail(){
+  const r=steps.getBoundingClientRect(),vh=innerHeight;
+  const p=Math.min(1,Math.max(0,(vh*.62-r.top)/(r.height-48)));
+  fill.style.setProperty('--p',p.toFixed(3));
+  stepEls.forEach(s=>{const sr=s.getBoundingClientRect();s.classList.toggle('on',sr.top+24<vh*.62)});
+}
+addEventListener('scroll',rail,{passive:true});addEventListener('resize',rail);rail();
+
+/* ---------- galerija + lightbox ---------- */
+const G=[['pudla-braon','Toy pudla',1200,1495],['haski-furminiranje','Haski posle furminiranja',900,1125],['korgi','Velški korgi',900,1200],['jorksir','Jorkširski terijer',900,1200],['pomeranac-meda','Pomeranac',900,1200],['civave','Dve čivave',900,1200],['retriver','Zlatni retriver',900,900],['snaucer-crni','Šnaucer',900,1200],['koker','Koker španijel',900,1200],['mops','Mops',900,1200],['pomeranac-feniran','Pomeranac posle feniranja',900,962],['francuski-buldog','Francuski buldog',900,1200],
+['buldog','Engleski buldog',900,1200],['pudla-toy','Toy pudla',900,1200],['civava-dugodlaka','Dugodlaka čivava',900,1200],['pomeranac-krem','Pomeranac',900,1200],['dugodlaki','Gost salona',900,1200],['korgi-salon','Korgi u salonu',900,995],['mali-pomeranac','Gost salona',900,1200],['stene','Gost salona',900,1125],['snaucer','Patuljasti šnaucer',900,1200],['crni-mops','Gost salona',900,1200],['pomeranac-svetli','Pomeranac',900,1200],['jorksir-salon','Jorkširski terijer',900,1200],['pomeranac-zid','Pomeranac',900,900]];
+const gal=$('#gal');
+gal.innerHTML=G.map(([f,c,w,h],i)=>`<figure class="${i>=12?'more-item':''}"><button type="button" data-i="${i}" aria-label="Uvećaj: ${c}"><img src="assets/${f}.webp" width="${w}" height="${h}" alt="${c}, fotografija iz salona Grooming Line" loading="lazy"></button><figcaption>${c}</figcaption></figure>`).join('');
+const more=$('#galMore');more.textContent=`Prikaži još ${G.length-12} gostiju`;
+more.addEventListener('click',()=>{gal.classList.add('all');more.parentNode.remove()});
+const lb=$('#lb');let li=0;
+const showLb=i=>{li=(i+G.length)%G.length;const [f,c]=G[li];$('#lbImg').src=`assets/${f}.webp`;$('#lbImg').alt=c;$('#lbCap').textContent=`${c} · ${li+1}/${G.length}`};
+gal.addEventListener('click',e=>{const b=e.target.closest('button[data-i]');if(!b)return;showLb(+b.dataset.i);lb.showModal()});
+$('#lbPrev').onclick=()=>showLb(li-1);$('#lbNext').onclick=()=>showLb(li+1);$('#lbClose').onclick=()=>lb.close();
+lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+lb.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')showLb(li-1);if(e.key==='ArrowRight')showLb(li+1)});
+
+/* ---------- utisci ---------- */
+const R=[
+ ['Dane Blačić','Beta je iz drugih salona uvek izlazila istraumirana, a odavde izađe vesela. Još miriše na čokoladu, ceo stan miriše.','var(--pk)'],
+ ['Marija Jevtić','Sve pohvale za Marinu i način na koji je prišla mom psu. Imala je toliko strpljenja da od njega napravi gospodina, koji je izašao čist, mirišljav i presrećan.','var(--cy)'],
+ ['Tina','Frizura, odnos prema klijentu, ljubaznost. I još jedna bitna stvar: uvek nas podsete kad imamo zakazano šišanje.','var(--or)'],
+ ['Aleksandra Vidić','Moj nemački špic nikad nije bio lepše ošišan. Cene i popusti za prvih nekoliko šišanja dosta znače.','var(--li)'],
+ ['Marija Raičković','Posvećenost i odličan rad rezultirali su time da moj neuredni čau čau postane pravi lepotan. Vidi se kad neko radi sa ljubavlju.','var(--pu)'],
+ ['Milan Petrović','Vrhunska usluga i ljubazno osoblje. Haski Ice je uživao, iako na početku nije tako izgledalo.','var(--gr)'],
+ ['Danilo Popović','Pekinezer mi je ošišan perfektno. Salon je čist i uredan, iskustvo prijatno, cena odlična.','var(--go)'],
+ ['Anđela Pavlović','Devojka je divna i pažljiva. Pre svega se vidi da zna sa psima i da joj je stalo da psu bude što prijatnije.','var(--rd)'],
+ ['Olga Radosavljević','Divne grumerke i odlična atmosfera. Profesionalne i vrlo vešte.','var(--cy)'],
+ ['Aleksandra Ninković','Prezadovoljni ljubaznošću i uslugom. Vini je pronašla svog stalnog frizera.','var(--pk)'],
+ ['Boris Ristić','Bo ima novog frizera. Najiskrenije preporuke.','var(--or)'],
+ ['Ivana Grozdanović','Predivna devojka, divna usluga i još lepše ophođenje prema mom psu. Našla sam salon za moju Koko.','var(--li)'],
+ ['Nenad Kozarac','Salon je čist i uredan, osoblje stručno i ljubazno. Jednom rečju fenomenalno.','var(--pu)'],
+ ['Kiki','Stalno dovodim svoju kucu ovde i uvek budem prezadovoljna. Posle tretmana miriše kao princes krofnica.','var(--gr)']
+];
+const ini=n=>n.split(' ').map(w=>w[0]).join('').slice(0,2);
+const stars='<span class="stars" aria-label="Preporuka">'+'<svg><use href="#star"/></svg>'.repeat(5)+'</span>';
+$('#revRow').innerHTML=R.map(([n,t,c])=>`<figure class="rcard">${stars}<p>„${t}“</p><figcaption class="who"><span class="av" style="--c:${c}">${ini(n)}</span><span><b>${n}</b><small>utisak sa sajta salona</small></span></figcaption></figure>`).join('');
+const row=$('#revRow');const step=()=>row.querySelector('.rcard').offsetWidth+24;
+$('#revPrev').onclick=()=>row.scrollBy({left:-step(),behavior:'smooth'});$('#revNext').onclick=()=>row.scrollBy({left:step(),behavior:'smooth'});
+
+/* ---------- 12 molbi ---------- */
+const M=['Moj život traje 10 do 15 godina. Svaki rastanak od tebe za mene znači patnju. Razmisli o tome pre nego što me uzmeš.','Voli me onakvog kakav sam, jer si me ti birao. Ja nemam mogućnost da biram prijatelja i gospodara.','Daj mi vremena da shvatim šta od mene tražiš pre nego što me izgrdiš. Možda ti grešiš, ili ja ne mogu da shvatim šta želiš.','Voli me, ja živim od tvoje ljubavi.','Ne ljuti se na mene i ne kažnjavaj me. Ti imaš svoj posao, prijatelje i razonodu, a ja imam samo tebe.','Pričaj sa mnom. I kad ti se čini da te ne razumem, ja znam šta misliš i osećaš.','Znaj da ja ne zaboravljam kako se sa mnom postupa.','Pre nego što me udariš, pomisli da te ja lako mogu ugristi, ali to nikada ne radim.','Ne uzimaj me kao igračku dok sam mali i sladak, da bi me kasnije odbacio. Moja ljubav prema tebi je večna.','Brini o meni kad ostarim, ostanem bez zuba, ogluvim i prestanem da se krećem. I o tebi će se neko brinuti.','Prati me na mom poslednjem putu. S tobom je za mene sve lakše.','Kad me više ne bude, nemoj da tuguješ. Usreći nekog novog psa i voli ga kao što si mene voleo.'];
+let mi=0;const pTxt=$('#pleaTxt'),pNo=$('#pleaNo'),dots=$('#pleaDots');
+dots.innerHTML=M.map((_,i)=>`<button type="button" aria-label="Molba ${i+1}"></button>`).join('');
+function plea(i){mi=(i+M.length)%M.length;pTxt.classList.add('out');setTimeout(()=>{pTxt.textContent=M[mi];pNo.textContent=`Molba ${mi+1} od 12`;pTxt.classList.remove('out')},250);$$('button',dots).forEach((b,j)=>b.setAttribute('aria-current',j===mi))}
+$$('button',dots).forEach((b,j)=>b.onclick=()=>plea(j));$('#pleaPrev').onclick=()=>plea(mi-1);$('#pleaNext').onclick=()=>plea(mi+1);
+$$('button',dots)[0].setAttribute('aria-current','true');
+
+/* ---------- ZAKAZIVANJE ---------- */
+const touch=matchMedia('(pointer:coarse)').matches;
+($(touch?'#sendSms':'#sendMail')).className='btn';
+const bk=$('#bk'),form=$('#bkForm'),panes=$$('.pane',bk),stepLis=$$('#bkSteps li');
+let cur=0;const st={svc:null,size:null,coat:'kratka',date:null,time:null};
+$('#bkSvc').innerHTML=PK.map(p=>`<label class="opt"><input type="radio" name="svc" value="${p.id}"><span>${p.n}<small>od ${fmt(lowest(p))} din.</small></span></label>`).join('')+
+ `<label class="opt wide"><input type="radio" name="svc" value="savet"><span>Nisam siguran, posavetujte me<small>cenu dogovaramo telefonom</small></span></label>`;
+const sizeIco='<svg class="i"><use href="#i-paw"/></svg>';
+$('#bkSize').innerHTML=Object.entries(SZ).map(([k,v])=>`<label class="opt"><input type="radio" name="size" value="${k}"><span>${sizeIco}${v[0]}<small>${v[2]}</small></span></label>`).join('');
+const svcSel=()=>{const r=$('input[name=svc]:checked',bk);return r?r.value:null};
+function total(){
+  const id=svcSel();const sz=$('input[name=size]:checked',bk);const coat=$('input[name=coat]:checked',bk).value;
+  if(!id||id==='savet'||!sz) return null;
+  const p=pk(id);let v=priceOf(p,sz.value,coat);if(v==null) return null;
+  const add=$$('input[name=add]:checked',bk).reduce((a,c)=>a+ +c.dataset.p,0);
+  return Array.isArray(v)?[v[0]+add,v[1]+add]:v+add;
+}
+function sizes(){
+  const id=svcSel();const p=id&&id!=='savet'?pk(id):null;const coat=$('input[name=coat]:checked',bk).value;
+  $('#bkCoatWrap').hidden=!(p&&p.coat);
+  $$('input[name=size]',bk).forEach(r=>{const ok=!p||(r.value in table(p,coat));r.disabled=!ok;if(!ok&&r.checked)r.checked=false;
+    const pr=p&&ok?money(priceOf(p,r.value,coat))+' din.':SZ[r.value][2];r.nextElementSibling.querySelector('small').textContent=pr});
+}
+function sum(){
+  sizes();const t=total();const id=svcSel();
+  $('#bkSum').textContent=t?money(t)+' din.':(id==='savet'?'po dogovoru':'-');
+  $('#bkSumTxt').textContent=id?(id==='savet'?'Posavetujemo te telefonom':pk(id).n):'Izaberi tretman i veličinu';
+}
+form.addEventListener('change',sum);
+
+/* kalendar */
+let calM;const DN=['Po','Ut','Sr','Če','Pe','Su','Ne'];
+const ymd=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+function cal(){
+  const now=bgNow(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  const max=new Date(today);max.setDate(max.getDate()+60);
+  const first=new Date(calM.getFullYear(),calM.getMonth(),1),off=(first.getDay()+6)%7,days=new Date(calM.getFullYear(),calM.getMonth()+1,0).getDate();
+  $('#calTitle').textContent=first.toLocaleDateString('sr-Latn-RS',{month:'long',year:'numeric'});
+  $('#calPrev').disabled=calM.getFullYear()===today.getFullYear()&&calM.getMonth()===today.getMonth();
+  $('#calNext').disabled=first>new Date(max.getFullYear(),max.getMonth()-0,0);
+  let h=DN.map(d=>`<span class="dn">${d}</span>`).join('')+'<span></span>'.repeat(off);
+  for(let i=1;i<=days;i++){const d=new Date(calM.getFullYear(),calM.getMonth(),i);
+    const late=+d===+today&&now.getHours()>=16;const dis=d<today||d>max||d.getDay()===0||late;
+    h+=`<button type="button" data-d="${ymd(d)}" ${dis?'disabled':''} class="${+d===+today?'today':''}" aria-pressed="${st.date===ymd(d)}" aria-label="${d.toLocaleDateString('sr-Latn-RS',{weekday:'long',day:'numeric',month:'long'})}">${i}</button>`}
+  $('#calGrid').innerHTML=h;
+}
+$('#calGrid').addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(!b||b.disabled)return;st.date=b.dataset.d;st.time=null;cal();slots()});
+$('#calPrev').onclick=()=>{calM.setMonth(calM.getMonth()-1);cal()};$('#calNext').onclick=()=>{calM.setMonth(calM.getMonth()+1);cal()};
+function slots(){
+  const box=$('#bkSlots');if(!st.date){box.innerHTML='<p class="slot-note" style="grid-column:1/-1;margin:0">Prvo izaberi dan u kalendaru.</p>';return}
+  const now=bgNow(),isToday=st.date===ymd(now);
+  box.innerHTML=['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'].map(t=>{const dis=isToday&&+t.slice(0,2)<=now.getHours();return `<label class="opt"><input type="radio" name="time" value="${t}" ${dis?'disabled':''} ${st.time===t?'checked':''}><span>${t}</span></label>`}).join('');
+}
+$('#bkSlots').addEventListener('change',e=>{st.time=e.target.value});
+
+function validate(i){
+  if(i===0) return !!svcSel();
+  if(i===1) return svcSel()==='savet'||!!$('input[name=size]:checked',bk);
+  if(i===2) return !!(st.date&&st.time);
+  if(i===3){let ok=true;const ime=$('#fIme').value.trim(),tel=$('#fTel').value.replace(/[^\d+]/g,'');
+    $('#fldIme').classList.toggle('err',ime.length<2);$('#fldTel').classList.toggle('err',tel.length<8);
+    if(ime.length<2||tel.length<8)ok=false;return ok}
+  return true;
+}
+const dLabel=s=>{const [y,m,d]=s.split('-');return new Date(y,m-1,d).toLocaleDateString('sr-Latn-RS',{weekday:'long',day:'numeric',month:'long'})};
+function message(){
+  const id=svcSel(),p=id&&id!=='savet'?pk(id):null,sz=$('input[name=size]:checked',bk),coat=$('input[name=coat]:checked',bk).value;
+  const adds=$$('input[name=add]:checked',bk).map(c=>c.nextElementSibling.firstChild.textContent.trim());
+  const t=total();
+  const rows=[['Tretman',p?p.n:'Posavetujte me'],['Veličina',sz?SZ[sz.value][0]+(p&&p.coat?(coat==='duga'?', dugodlaki':', kratkodlaki'):''):'-']];
+  const pas=[$('#fPas').value.trim(),$('#fRasa').value.trim()].filter(Boolean).join(', ');if(pas)rows.push(['Pas',pas]);
+  if(adds.length)rows.push(['Dodaci',adds.join(', ')]);
+  rows.push(['Termin',dLabel(st.date)+', oko '+st.time]);
+  rows.push(['Ime',$('#fIme').value.trim()],['Telefon',$('#fTel').value.trim()],['Potvrda',$('input[name=potvrda]:checked',bk).value]);
+  const nap=$('#fNap').value.trim();if(nap)rows.push(['Napomena',nap]);
+  const price=t?money(t)+' din.':'po dogovoru';
+  const txt='Zdravo, želim da zakažem termin u Grooming Line.\n'+rows.map(r=>r[0]+': '+r[1]).join('\n')+'\nOkvirna cena: '+price;
+  return {rows,price,txt};
+}
+function go(i){
+  cur=i;panes.forEach((p,j)=>p.classList.toggle('cur',j===i));
+  stepLis.forEach((l,j)=>{l.classList.toggle('cur',j===i);l.classList.toggle('done',j<i)});
+  $('#bkProg').style.setProperty('--w',Math.min(100,(i+1)*20)+'%');
+  $('#bkBack').style.visibility=i===0?'hidden':'visible';
+  $('#bkFoot').classList.toggle('last',i===4);
+  $('#bkFoot').style.display=i===5?'none':'';
+  if(i===2){cal();slots()}
+  if(i===4){const m=message();$('#bkReview').innerHTML=m.rows.map(r=>`<dt>${r[0]}</dt><dd>${r[1].replace(/[<>&]/g,'')}</dd>`).join('');$('#bkTotal').textContent=m.price;
+    const enc=encodeURIComponent(m.txt);$('#sendSms').href='sms:+381631114161?&body='+enc;$('#sendMail').href='mailto:office@groomingline.rs?subject='+encodeURIComponent('Zakazivanje termina - '+($('#fPas').value.trim()||$('#fIme').value.trim()))+'&body='+enc}
+  $('#bkBody').scrollTop=0;
+  const f=panes[i].querySelector('input:not([disabled]),button');if(f&&matchMedia('(pointer:fine)').matches)f.focus({preventScroll:true});
+}
+$('#bkNext').onclick=()=>{if(!validate(cur)){panes[cur].classList.remove('shake');void panes[cur].offsetWidth;panes[cur].classList.add('shake');
+  const hint={0:'Izaberi tretman.',1:'Izaberi veličinu psa.',2:'Izaberi dan i vreme.'}[cur];if(hint)$('#bkSumTxt').textContent=hint;return}
+  go(cur+1)};
+$('#bkBack').onclick=()=>go(Math.max(0,cur-1));
+const finish=how=>{const ime=$('#fIme').value.trim().split(' ')[0];$('#doneTitle').textContent=`Hvala, ${ime}. Zahtev je ${how}.`;go(5)};
+$('#sendSms').addEventListener('click',()=>setTimeout(()=>finish('spreman za slanje'),400));
+$('#sendMail').addEventListener('click',()=>setTimeout(()=>finish('spreman za slanje'),400));
+$('#sendCopy').onclick=async()=>{const m=message();try{await navigator.clipboard.writeText(m.txt);$('#sendCopy').textContent='Kopirano, nalepi je u Viber na 063 111 41 61'}catch(e){$('#sendCopy').textContent='Kopiranje nije uspelo, pošalji SMS ili mejl'}};
+function openBk(svc,size,coat){
+  form.reset();Object.assign(st,{date:null,time:null});$$('.fld').forEach(f=>f.classList.remove('err'));
+  $('#sendCopy').textContent='Kopiraj poruku';
+  const now=bgNow();calM=new Date(now.getFullYear(),now.getMonth(),1);
+  if(svc){const r=$(`input[name=svc][value="${svc}"]`,bk);if(r)r.checked=true}
+  if(coat){const r=$(`input[name=coat][value="${coat}"]`,bk);if(r)r.checked=true}
+  sizes();
+  if(size){const r=$(`input[name=size][value="${size}"]`,bk);if(r&&!r.disabled)r.checked=true}
+  sum();bk.showModal();document.body.style.overflow='hidden';
+  go(svc&&size?2:svc?1:0);
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-book]');if(!b)return;e.preventDefault();openBk(b.dataset.book||null,b.dataset.size||null,b.dataset.coat||null)});
+const closeBk=()=>bk.close();
+$('#bkClose').onclick=closeBk;$('#doneClose').onclick=closeBk;
+bk.addEventListener('close',()=>{document.body.style.overflow=''});
+bk.addEventListener('click',e=>{if(e.target===bk)closeBk()});
+form.addEventListener('submit',e=>e.preventDefault());
+form.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='INPUT'){e.preventDefault();$('#bkNext').click()}});
+})();
+</script>
 </body>
 </html>
