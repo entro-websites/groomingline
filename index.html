@@ -323,7 +323,7 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
 .tip .tg{align-self:flex-start;padding:4px 12px;border-radius:999px;background:var(--c);color:var(--white);font-size:12px;line-height:20px;font-weight:700}
 .tip h3{font-size:24px;line-height:32px;letter-spacing:-.02em;text-wrap:balance}
 .tip summary p{color:var(--muted);text-wrap:pretty}
-.tip .open-lbl{display:flex;align-items:center;gap:8px;font-weight:600;margin-top:auto}
+.tip .open-lbl{display:flex;align-items:center;gap:8px;font-weight:600}
 .tip .open-lbl svg{transition:transform .3s}
 .tip[open] .open-lbl svg{transform:rotate(180deg)}
 .tip-body{padding:0 32px 32px;font-size:16px;line-height:24px;color:var(--muted)}
@@ -1262,7 +1262,7 @@ function rail(){
 }
 addEventListener('scroll',rail,{passive:true});addEventListener('resize',rail);rail();
 
-/* saveti: zatvoreni box-ovi iste visine, višak ide iznad „Pročitaj", ne između naslova i teksta */
+/* saveti: zatvoreni box-ovi iste visine, višak ide ispod „Pročitaj" */
 const tipsWrap=document.querySelector('.tips');
 function tipsEq(){
   if(!tipsWrap)return;
