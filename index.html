@@ -318,12 +318,12 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
 /* saveti */
 .tips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
 .tip{border-radius:var(--r);background:var(--white);border:1px solid var(--line);overflow:hidden}
-.tip summary{display:flex;flex-direction:column;gap:16px;padding:32px;cursor:pointer;list-style:none}
+.tip summary{display:flex;flex-direction:column;gap:16px;padding:32px;cursor:pointer;list-style:none;min-height:var(--sum-h,0)}
 .tip summary::-webkit-details-marker{display:none}
 .tip .tg{align-self:flex-start;padding:4px 12px;border-radius:999px;background:var(--c);color:var(--white);font-size:12px;line-height:20px;font-weight:700}
-.tip h3{font-size:24px;line-height:32px;letter-spacing:-.02em;text-wrap:balance;min-height:64px}
+.tip h3{font-size:24px;line-height:32px;letter-spacing:-.02em;text-wrap:balance}
 .tip summary p{color:var(--muted);text-wrap:pretty}
-.tip .open-lbl{display:flex;align-items:center;gap:8px;font-weight:600}
+.tip .open-lbl{display:flex;align-items:center;gap:8px;font-weight:600;margin-top:auto}
 .tip .open-lbl svg{transition:transform .3s}
 .tip[open] .open-lbl svg{transform:rotate(180deg)}
 .tip-body{padding:0 32px 32px;font-size:16px;line-height:24px;color:var(--muted)}
@@ -1261,6 +1261,17 @@ function rail(){
   stepEls.forEach(s=>{const sr=s.getBoundingClientRect();s.classList.toggle('on',sr.top+24<vh*.62)});
 }
 addEventListener('scroll',rail,{passive:true});addEventListener('resize',rail);rail();
+
+/* saveti: zatvoreni box-ovi iste visine, višak ide iznad „Pročitaj", ne između naslova i teksta */
+const tipsWrap=document.querySelector('.tips');
+function tipsEq(){
+  if(!tipsWrap)return;
+  tipsWrap.style.removeProperty('--sum-h');
+  if(getComputedStyle(tipsWrap).gridTemplateColumns.split(' ').length<2)return;
+  const h=Math.max(...[...tipsWrap.querySelectorAll('summary')].map(x=>x.offsetHeight));
+  tipsWrap.style.setProperty('--sum-h',h+'px');
+}
+addEventListener('resize',tipsEq);document.fonts.ready.then(tipsEq);tipsEq();
 
 /* ---------- galerija + lightbox ---------- */
 const G=[['pudla-braon','Toy pudla',1200,1495],['haski-furminiranje','Haski posle furminiranja',900,1125],['korgi','Velški korgi',900,1200],['jorksir','Jorkširski terijer',900,1200],['pomeranac-meda','Pomeranac',900,1200],['civave','Dve čivave',900,1200],['retriver','Zlatni retriver',900,900],['snaucer-crni','Šnaucer',900,1200],['koker','Koker španijel',900,1200],['mops','Mops',900,1200],['pomeranac-feniran','Pomeranac posle feniranja',900,962],['francuski-buldog','Francuski buldog',900,1200],
